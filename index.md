@@ -4,3 +4,4 @@ My name is Joey and I like to program! This website is a workin progress but her
 
 [about me](./html/aboutme.html)
 [math test](./html/math.html)
+[blog](./html/b_md2html_post0_intro.html)
