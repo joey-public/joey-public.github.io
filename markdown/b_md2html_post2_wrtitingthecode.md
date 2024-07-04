@@ -1,6 +1,6 @@
 # Custom md2html: Environment Setup 
 
-**Links:** [Previous Post](./b_md2html_post1_pythonsetup.md)<------>[Next Post](./b_md2html_post3_readmdfile.md)
+**Links:** [Previous Post][100]<------>[Next Post][101]
 
 ___
 
@@ -72,3 +72,16 @@ You should be able to see your file rendering in the browser! Note the `<class '
 ## Conclusion
 
 In this Post I created our script and generated our first html file! In the next post I will update the `md2html` script to read in a markdown file as an input argument.
+
+___
+
+### References
+
+### Links
+
+[Previous Post][100]
+[100]:./b_md2html_post1_pythonsetup.html
+
+[Next Post][101]
+[101]:./b_md2html_post3_readmdfile.html
+

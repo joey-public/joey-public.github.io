@@ -1,6 +1,6 @@
 # Custom md2html: A Simple markdown to html Tool
 
-**Links:** [Next Post][3]
+**Links:** [Next Post][101]
 
 ___
 
@@ -34,10 +34,6 @@ In this post we introduced the project ideas for a markdown to html converter to
 In the next post I will cover setting up a python environment.
 ___
 
-### Links
-
-[Next Post][100]
-[100]: ./html/b_md2html_post1_pythonsetup.html
 
 ### References
 
@@ -49,3 +45,8 @@ ___
 
 [Markdown Refrence Guide][0]
 [0]: https://daringfireball.net/projects/markdown/
+
+### Links
+
+[Next Post][101]
+[100]: ./b_md2html_post1_pythonsetup.html

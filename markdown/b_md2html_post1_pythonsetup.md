@@ -1,6 +1,6 @@
 # Custom md2html: Environment Setup 
 
-**Links:** [Previous Post](./b_md2html_post0_intro.md)<------>[next post](./b_md2html_post2_wrtitingthecode.md)
+**Links:** [Previous Post][100]<------>[next post][101]
 
 ___
 
@@ -66,15 +66,16 @@ deactivate
 ## Conclusion
 In this post we got our git respository and python enviornment set. In the ['../html/']
 ___
-### Links
-[Previous Post][100]
-[100]: ./b_md2html_post0_intro.html
-
-[Next Post][101]
-[101]: ./b_md2html_post1_pythonsetup.html
 
 ### References:
 
 [2: Python Programmer Venv Video][2]
 [2]:https://www.youtube.com/watch?v=28eLP22SMTA&t=99s
 
+### Links
+
+[Previous Post][100]
+[100]: ./b_md2html_post0_intro.html
+
+[Next Post][101]
+[101]: ./b_md2html_post2_wrtitingthecode.html
