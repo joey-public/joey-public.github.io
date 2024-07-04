@@ -12,7 +12,7 @@
     </script>
 </header>
 <h1>Custom md2html: Environment Setup</h1>
-<p><strong>Links:</strong> <a href="./b_md2html_post0_intro.md">Previous Post</a>&lt;------&gt;[next post]</p>
+<p><strong>Links:</strong> <a href="./b_md2html_post0_intro.md">Previous Post</a>&lt;------&gt;<a href="./b_md2html_post2_wrtitingthecode.md">next post</a></p>
 <hr />
 <p>In the previous post I created a list of the requirements for the custom markdown to html tool that I am creating.  </p>
 <p>In this blog post I will cover how to setup my environment for this project. </p>
@@ -22,7 +22,7 @@
 <p>This is a very simple program that can live in a single python file, so I am just adding it to a GitHub repository this I already have setup for simple utility scripts like this. </p>
 <h2>Setting up a Python Virtual Environment</h2>
 <p>If you have never used a python virtual environment, then you should really check it out.</p>
-<p>This (YouTube video)<a href="https://www.youtube.com/watch?v=28eLP22SMTA&amp;t=99s">0</a> gives a great introduction to using the built in <code>venv</code> module in python if you want to learn more. </p>
+<p>This (YouTube video)[0] gives a great introduction to using the built in <code>venv</code> module in python if you want to learn more. </p>
 <p>I am working on a machine with Ubuntu 20.04 LTS so all of the instructions here assume that you are on a Linux machine with a bash shell. If you have another operating system or shell the general steps are the same, but the exact commands might differ. </p>
 <p>Anyways to create an environment named <code>myenv</code> int the <code>~/PythonEnvs/</code> directory type the following into your terminal on Linux:</p>
 <pre><code>mkdir ~/PythonEnvs
@@ -32,6 +32,24 @@ python3 -m venv myenv
 <p>Now to activate the newly created environment:</p>
 <pre><code>source ~/PythonEnvs/myenv/bin/activate
 </code></pre>
+<p>Next with this new environment active we can update pip and install all the python packages we will need for this project. We should only need the <code>markdown</code> library. </p>
+<pre><code>python -m pip install --upgrade pip
+python -m pip install markdown
+</code></pre>
+<p>For good measure we can create a <code>requirements.txt</code> file that can be used to setup this exact environment on any other computer you might be on. </p>
+<pre><code>python -m pip freeze &gt; requirements.txt
+</code></pre>
+<p>Now we can install these packages into another python environment like this: </p>
+<pre><code>python -m pip install -r requirements.txt 
+</code></pre>
+<p>Finally if you want to deactivate the environment just use the following command:</p>
+<pre><code>deactivate
+</code></pre>
+<h2>Conclusion</h2>
+<p>In this post we got our git respository and python enviornment set. In the ['../html/']</p>
 <hr />
+<h3>Links</h3>
+<p><a href="./b_md2html_post0_intro.html">Previous Post</a></p>
+<p><a href="./b_md2html_post1_pythonsetup.html">Next Post</a></p>
 <h3>References:</h3>
-<p><a href="https://www.youtube.com/watch?v=28eLP22SMTA&amp;t=99s">0: Python Programmer Venv Video</a></p>
+<p><a href="https://www.youtube.com/watch?v=28eLP22SMTA&amp;t=99s">2: Python Programmer Venv Video</a></p>

@@ -11,20 +11,39 @@
     };
     </script>
 </header>
-<h1>Using Python Create a Custom Markdown to HTML tool</h1>
+<h1>Custom md2html: A Simple markdown to html Tool</h1>
+<p><strong>Links:</strong> [Next Post][3]</p>
+<hr />
+<h2>Introduction</h2>
 <p>I want to create a custom tool to convert markdown notes into HTML files that can be viewed in the browser. This will be a simple tool, and the goal is more to learn and practice some python coding. </p>
-<p>If you are looking for a tool that just works then you should really consider using <code>pandoc</code>. You can use this tool to convert your markdown files into <code>.html</code>, <code>.pdf</code>, <code>.docx</code>, or almost any format you can imagine. I have used it before and it is an excellent tool and much much better than anything I could possibly make. </p>
+<p>If you are looking for a tool that just works then you should really consider using <a href="https://daringfireball.net/projects/markdown/"><code>pandoc</code></a>. You can use this tool to convert your markdown files into <code>.html</code>, <code>.pdf</code>, <code>.docx</code>, or almost any format you can imagine. I have used it before and it is an excellent tool and much much better than anything I could possibly make. </p>
 <p>Still I like to work on little projects and I think it would be fun to implement my own custom tool for this task that does just exactly what I want it to do and nothing more. </p>
 <p>I plan to make a few blog posts about this project to get it into a basic working state. Once the tool is workable then I will use it to do all of the markdown to html conversion for posts on my site! As I use the tool if there are features I wish it had, I will try to add them one by one and do my best to also create a blog post for each new feature. </p>
-<p>So to get started lets list out some of the basic requirements for our tool:</p>
+<h2>Requirements</h2>
+<p>To get started lets define the most basic requirements of the tool:</p>
 <ul>
-<li>Support for basic Markdown Syntax</li>
-<li>Support for inline HTML</li>
-<li>Support for math </li>
+<li>Run from command line <code>python md2html &lt;input_md_file_path&gt; &lt;output_html_dir&gt;</code></li>
+<li>Take in a plane text markdown file and convert it to a html file that can be rendered in any browser </li>
+<li>Support for basic Markdown Syntax <ul>
+<li>for Headers, paragraphs, bullet lists, numbered lists, code blocks, bold, italic</li>
 </ul>
-<p>In the next post I will cover <a href="./b_md2html_post1_pythonsetup.md">Setting up a python enviornment</a></p>
+</li>
+<li>Support for math <ul>
+<li>Using <code>$...$</code> for inline math and <code>$$...$$</code> for a math block</li>
+</ul>
+</li>
+<li>Support for inline HTML<ul>
+<li>As a fallback for anything we want to be in the html file that is not simple to represent in a markdown file (eg tables)</li>
+</ul>
+</li>
+</ul>
+<h2>Conclusion</h2>
+<p>In this post we introduced the project ideas for a markdown to html converter tool, and defined the basic requirements we want the tool to have.</p>
+<p>In the next post I will cover setting up a python environment.</p>
 <hr />
+<h3>Links</h3>
+<p><a href="./html/b_md2html_post1_pythonsetup.html">Next Post</a></p>
 <h3>References</h3>
-<p><a href="https://pandoc.org/">Pandoc Website</a></p>
-<p><a href="https://python-markdown.github.io/">Python Markdown docs</a></p>
+<p><a href="https://daringfireball.net/projects/markdown/">Pandoc Website</a></p>
+<p><a href="https://daringfireball.net/projects/markdown/">Python Markdown docs</a></p>
 <p><a href="https://daringfireball.net/projects/markdown/">Markdown Refrence Guide</a></p>

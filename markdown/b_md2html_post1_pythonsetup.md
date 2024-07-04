@@ -1,6 +1,6 @@
 # Custom md2html: Environment Setup 
 
-**Links:** [Previous Post](./b_md2html_post0_intro.md)<------>[next post]
+**Links:** [Previous Post](./b_md2html_post0_intro.md)<------>[next post](./b_md2html_post2_wrtitingthecode.md)
 
 ___
 
@@ -38,8 +38,43 @@ Now to activate the newly created environment:
 source ~/PythonEnvs/myenv/bin/activate
 ```
 
+Next with this new environment active we can update pip and install all the python packages we will need for this project. We should only need the `markdown` library. 
+
+```
+python -m pip install --upgrade pip
+python -m pip install markdown
+```
+
+For good measure we can create a `requirements.txt` file that can be used to setup this exact environment on any other computer you might be on. 
+
+```
+python -m pip freeze > requirements.txt
+```
+
+Now we can install these packages into another python environment like this: 
+
+```
+python -m pip install -r requirements.txt 
+```
+
+Finally if you want to deactivate the environment just use the following command:
+
+```
+deactivate
+```
+
+## Conclusion
+In this post we got our git respository and python enviornment set. In the ['../html/']
 ___
+### Links
+[Previous Post][100]
+[100]: ./b_md2html_post0_intro.html
+
+[Next Post][101]
+[101]: ./b_md2html_post1_pythonsetup.html
+
 ### References:
-[0: Python Programmer Venv Video][0]
-[0]:https://www.youtube.com/watch?v=28eLP22SMTA&t=99s
+
+[2: Python Programmer Venv Video][2]
+[2]:https://www.youtube.com/watch?v=28eLP22SMTA&t=99s
 
