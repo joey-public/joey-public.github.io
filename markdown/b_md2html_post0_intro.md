@@ -25,7 +25,7 @@ To get started lets define the most basic requirements of the tool:
 - Support for math 
     - Using `$...$` for inline math and `$$...$$` for a math block
 - Support for inline HTML
-    - As a fallback for anything we want to be in the html file that is not simple to represent in a markdown file (eg tables)
+    - As a fallback for anything we want to be in the html file that is not simple to represent in a markdown file \(eg tables\)
 
 ## Conclusion
 
@@ -49,4 +49,4 @@ ___
 ### Links
 
 [Next Post][101]
-[100]: ./b_md2html_post1_pythonsetup.html
+[101]: ./b_md2html_post1_pythonsetup.html

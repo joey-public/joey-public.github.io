@@ -1,4 +1,4 @@
-# Custom md2html: Creating an Output html File
+# Custom md2html: Latex Style Math Support 
 
 **Links:** [Previous Post][100]
 

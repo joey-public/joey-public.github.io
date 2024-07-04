@@ -1,8 +1,10 @@
 # Custom md2html: Environment Setup 
 
-**Links:** [Previous Post][100]<------>[next post][101]
+**Links:** [Previous Post][100]<------>[Next Post][101]
 
 ___
+
+## Introdution
 
 In the previous post I created a list of the requirements for the custom markdown to html tool that I am creating.  
 
@@ -78,4 +80,4 @@ ___
 [100]: ./b_md2html_post0_intro.html
 
 [Next Post][101]
-[101]: ./b_md2html_post2_wrtitingthecode.html
+[101]: ./b_md2html_post2_writingthecode.html

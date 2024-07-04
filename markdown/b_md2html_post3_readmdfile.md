@@ -1,4 +1,4 @@
-# Custom md2html: Creating an Output html File
+# Custom md2html: Reading Input from Markdown File
 
 **Links:** [Previous Post][100]<----->[Next Post][101]
 
