@@ -15,7 +15,7 @@ ___
 ### Links
 
 [Previous Post][100]
-[100]: ./b_md2html_post2_wrtitingthecode.html
+[100]: ./b_md2html_post2_writingthecode.html
 
 [Next Post][101]
 [101]: ./b_md2html_post4_generateoutfile.html

@@ -40,11 +40,11 @@ ___
 [Pandoc Website][0]
 [0]: https://pandoc.org/
 
-[Python Markdown docs][0]
-[0]: https://python-markdown.github.io/
+[Python Markdown docs][1]
+[1]: https://python-markdown.github.io/
 
-[Markdown Refrence Guide][0]
-[0]: https://daringfireball.net/projects/markdown/
+[Markdown Refrence Guide][2]
+[2]: https://daringfireball.net/projects/markdown/
 
 ### Links
 
