@@ -1,4 +1,4 @@
-# Custom md2html: A Simple markdown to html Tool
+# Custom md2html: A Simple Markdown to html Tool
 
 **Links:** [Next Post][101]
 

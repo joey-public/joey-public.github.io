@@ -14,10 +14,6 @@ In this blog post I will cover how to setup my environment for this project.
 
 The first thing I do whenever I start a new code project is to create a git repository on GitHub for it. Then I clone the empty repository to my computer. 
 
-For this project the git repository is [here](https://github.com/joey-public/MyScripts). 
-
-This is a very simple program that can live in a single python file, so I am just adding it to a GitHub repository this I already have setup for simple utility scripts like this. 
-
 ## Setting up a Python Virtual Environment
 
 If you have never used a python virtual environment, then you should really check it out.
@@ -71,8 +67,8 @@ ___
 
 ### References:
 
-[2: Python Programmer Venv Video][2]
-[2]:https://www.youtube.com/watch?v=28eLP22SMTA&t=99s
+[0: Python Programmer Venv Video][0]
+[0]:https://www.youtube.com/watch?v=28eLP22SMTA&t=99s
 
 ### Links
 
