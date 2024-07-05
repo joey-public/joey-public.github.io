@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "markdown/b_md2html_post1_pythonsetup.md",
+                "file": "markdown/b_genSite_post0.md",
                 "mode": "preview",
                 "source": true
               }
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "markdown/b_md2html_post1_pythonsetup.md",
+                "file": "markdown/b_genSite_post0.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "markdown/b_md2html_post1_pythonsetup.md",
+                "file": "markdown/b_genSite_post0.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "markdown/b_md2html_post1_pythonsetup.md"
+                "file": "markdown/b_genSite_post0.md"
               }
             }
           }
@@ -149,12 +149,19 @@
   },
   "active": "756de88a26ad4432",
   "lastOpenFiles": [
+    "Makefile",
+    "MakeFile",
+    "html/b_genSite_post0.html",
+    "html/b_md2html_post2_wrtitingthecode.html",
+    "templates/t_blog_post.md",
+    "templates",
+    "markdown/b_md2html_post3_readmdfile.md",
+    "markdown/b_genSite_post0.md",
+    "markdown/b_md2html_post1_pythonsetup.md",
     "markdown/b_md2html_post0_intro.md",
     "markdown/b_md2html_post5_mathsupport.md",
     "markdown/b_md2html_post4_generateoutfile.md",
-    "markdown/b_md2html_post1_pythonsetup.md",
     "markdown/b_md2html_post2_wrtitingthecode.md",
-    "markdown/b_md2html_post3_readmdfile.md",
     "markdown/b_md2html_post3_generatehtmlfile.md",
     "Untitled.md",
     "html/b_md2html_post1_pythonsetup.html",

@@ -1,0 +1,92 @@
+
+<header>
+    <script id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3.0.0/es5/tex-mml-chtml.js">
+    </script>
+    <script>
+    MathJax = {
+      tex: {
+          inlineMath: [['$', '$'], ['\(', '\)']]
+           }
+    };
+    </script>
+</header>
+<h1>Title</h1>
+<p><strong>Links:</strong> [Previous Post][100]&lt;------&gt;[Next Post][101]</p>
+<h2>Introduction</h2>
+<p>In this series of blog posts I want to document my progression as I design and update my own personal website. In this post I will brainstorm the features I want in my website. </p>
+<p>I want to keep things as simple as possible, including avoiding using any form of website generators. I like making things from scratch as much as is reasonable, this way I can learn more, get first some practice programming new things, and build exactly the tools I want and need. </p>
+<p>If nothing else I will just walk away with an appreciation for why I should use a site generator like <a href="https://jekyllrb.com/">Jekyll</a> or <a href="https://gohugo.io/">hugo</a>. </p>
+<h2>Requirements</h2>
+<ul>
+<li>I can Host the site on GitHub pages</li>
+<li>Blog Style Pages should be written in Markdown then converted to html <ul>
+<li>Be able to generate the website with a single command line call</li>
+</ul>
+</li>
+<li>Styling can be manually with css style sheets. </li>
+<li>Any more complicated pages can be manually written with html/css. </li>
+<li>Minimal to no JavaScript so I can learn basic HTML and CSS to start</li>
+</ul>
+<h2>Hosting the site</h2>
+<p>I host this site using <a href="https://jekyllrb.com/">Github Pages</a>. This is an easy and free way to host the website directly from its github repository and is a great fit for my goals. </p>
+<h2>Folder Structure</h2>
+<p>The file structure of my site will look like this:</p>
+<p><code>my_site
+----index.html
+----markdown/
+----html/
+----images/
+----templates/</code></p>
+<h2>Naming Conventions</h2>
+<p>I should come up with a strict naming convention for files so that its easy to organize everything. For starters:</p>
+<ul>
+<li><code>index.html</code> is the main entry point for the site</li>
+<li>All markdown files go in the markdown directory and follow a naming convention like this: <code>&lt;type_id&gt;_&lt;series_name&gt;_&lt;post#&gt;_&lt;note&gt;.md</code> <ul>
+<li><code>type_id</code> is a code for the type of page, for example <code>b</code> for a blog post</li>
+<li><code>series name</code> is the name of the topic this series of pages is about</li>
+<li><code>post#</code> defines the post number on the topic</li>
+<li><code>note</code> is an optional description of the file</li>
+</ul>
+</li>
+<li>All html files go in the html directory and have the same name as the markdown file that they were generated from, but with an html file extension</li>
+</ul>
+<p>I should make another post sometime to flesh out the file naming conventions as far as what <code>type_ids</code> I want to include for now here is a super short idea list</p>
+<ul>
+<li><code>b</code>$\rightarrow$ a blog </li>
+<li><code>t</code>$\rightarrow$ a tutorial </li>
+<li><code>g</code>$\rightarrow$ a playable game</li>
+<li><code>s</code>$\rightarrow$ a story</li>
+<li><code>n</code>$\rightarrow$ a note </li>
+</ul>
+<h2>Build System</h2>
+<p>As I mentioned I want to make my own build system for this website. My plan is to use a custom <code>siteGen.py</code> script to generate my website. </p>
+<p>The most critical function of this script is: </p>
+<ul>
+<li>Read all the markdown files in the sites markdown directory and then convert them to html documents. </li>
+</ul>
+<p>Some other cool features I can think of off the top of my head are</p>
+<ul>
+<li>Enforcing the file naming convention </li>
+<li>Checking all the md files for spelling and grammar mistakes </li>
+<li>Helping fix broken links on the website</li>
+</ul>
+<p>So the basic steps in my build process will be:</p>
+<ol>
+<li>run <code>siteGen.py</code></li>
+<li>use <code>git</code> to add and commit changes</li>
+<li>use <code>git</code> to push my new code to my repo making like on the site</li>
+</ol>
+<p>If I use a <a href="https://endler.dev/2017/makefiles/"><code>Makefile</code></a> for this process I should be able to set couple rules for building and not pushing if I just want to look at the webpages locally before making them live. </p>
+<h2>Conclusion</h2>
+<hr />
+<h3>Refrences</h3>
+<p><a href="https://jekyllrb.com/">0: Jekyll Main Webpage</a></p>
+<p><a href="https://gohugo.io/">1: Hugo Main Webpage</a></p>
+<p><a href="https://pages.github.com/">2: Github Pages Site</a></p>
+<p><a href="https://endler.dev/2017/makefiles/">3: Makfile Tutorial</a></p>
+<h3>Links</h3>
+<p>[Previous Post][100]
+[100]: </p>
+<p>[Next Post][101]
+[101]: </p>

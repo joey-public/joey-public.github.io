@@ -15,7 +15,120 @@
 <p><strong>Links:</strong> <a href="./b_md2html_post3_readmdfile.html">Previous Post</a>&lt;-----&gt;<a href="./b_md2html_post5_mathsupport.html">Next Post</a></p>
 <hr />
 <h2>Introduction</h2>
+<p>In this post I will talk about how to save a string into a file with python. This way ourmd to html converter can actually save its output.  </p>
+<h2>Updated arg Parsing</h2>
+<p>In the last section we programmed the <code>_parse_args()</code> function to verify we had a valid input markdown file. Now we want to make sure we have a second argumet. We want the second argument to be the directory/folder where we want to store the output html. </p>
+<p>Update the <code>_parse_args()</code> funciton to look like this:</p>
+<p>```Python</p>
+<h1>return a list containing the parsed args if they are valid, or else an empty list</h1>
+<p>def _parse_args(argv:list)-&gt;list:
+    usage_str = 'usage: python md2html.py <input.md>'
+    #first make sure we have exactly 2 input arguments
+    n_args=len(argv)
+    expected_n_args = 3
+    if not(n_args==expected_n_args):
+        print(f'Error: Arguments Incorrect:\n    {usage_str}')
+        return []
+    #next check that it is a file that exists and that it ends with the .md extension
+    md_file_exisits = os.path.isfile(argv[1])
+    md_file_valid = os.path.splitext(argv[1])[1]=='.md'
+    if not(md_file_exisits): 
+        print(f'Error: {argv[1]} md file does not exist:\n    {usage_str}')
+        return []
+    if not(md_file_valid):
+        print(f'Error: {argv[1]} is not a md file:\n    {usage_str}')
+        return []
+    # finally make sure the html dir is valid and exists already
+    html_dir_exists = os.path.isdir(argv[2])
+    if not(html_dir_exists):
+        print(f'Error: {argv[2]} is not an existing directory :\n    {usage_str}')
+        return []
+    #If we make it here we know both arguments are good
+    md_file_str = argv[1]
+    html_dir_str = argv[2]
+    return [md_file_str, html_dir_str]
+```</p>
+<h2>Create a Save Funciton</h2>
+<p>Next create a save function that take in a file path and a content string and saves it to the onto the computer. This functino will look very similar to the <code>_get_md_file_content()</code> funciton from the last post. </p>
+<p><code>Python
+def _save_html_file(path:str, content:str)-&gt;None:
+    with open(path, 'w', encoding='utf-8', errors='xmlcharrefreplace') as output_file:
+        output_file.write(content)</code></p>
+<h2>Update the main Function</h2>
+<p>Finally we just need to update the <code>main()</code> function to get the passed html directory, generate an html file path based on the passed markdown file, generate the html content string, and save it to a file. </p>
+<p><code>Python
+def main(argv:list)-&gt;None:
+    arg_list = _parse_args(argv)
+    if arg_list == []: 
+        print('Error while parsing input arguments')
+        return 
+    md_file_path = arg_list[0]
+    md_content_str = _get_md_file_content(md_file_path)
+    html_content_str = markdown.markdown(md_content_str)
+    html_dir = arg_list[1]
+    html_file_name = os.path.splitext(os.path.basename(md_file_path))[0]
+    html_file_path = html_dir + html_file_name + '.html'
+    _save_html_file(html_file_path, html_content_str)</code></p>
+<h2>Testing it all Together</h2>
+<p>Now things get exciting! with the fill code we have so far we should be able to generate our first html file and view it in a web browser!</p>
+<p>first lets create a directory to save all of our markdown files, and then run our script:</p>
+<p><code>Bash
+mkdir ./html
+python md2html.py ./temp.md ./html</code></p>
+<p>look inside the html folder and you should see the generate <code>temp.html</code> file! open this in the web browser and you should see a properly formatted html file. </p>
 <h2>Conclusion</h2>
+<p>In this post we finished a minimal viable product for a simple markdwonn to html converter script. In the next section we will add few more features to improve the tool. </p>
+<p>The whole script so far is pasted below:</p>
+<p>```Python
+import sys
+import os
+import markdown</p>
+<p>def _parse_args(argv:list)-&gt;list:
+    usage_str = 'usage: python md2html.py <input.md>'
+    n_args=len(argv)
+    expected_n_args = 3
+    if not(n_args==expected_n_args):
+        print(f'Error: Arguments Incorrect:\n    {usage_str}')
+        return []
+    md_file_exisits = os.path.isfile(argv[1])
+    md_file_valid = os.path.splitext(argv[1])[1]=='.md'
+    if not(md_file_exisits): 
+        print(f'Error: {argv[1]} md file does not exist:\n    {usage_str}')
+        return []
+    if not(md_file_valid):
+        print(f'Error: {argv[1]} is not a md file:\n    {usage_str}')
+        return []
+    # make sure the html dir is valid and exists already
+    html_dir_exists = os.path.isdir(argv[2])
+    if not(html_dir_exists):
+        print(f'Error: {argv[2]} is not an existing directory :\n    {usage_str}')
+        return []
+    #If we make it here we know both arguments are good
+    md_file_str = argv[1]
+    html_dir_str = argv[2]
+    return [md_file_str, html_dir_str]</p>
+<p>def _get_md_file_content(path:str)-&gt;str:
+    with open(path, 'r', encoding='utf-8') as input_file:
+        txt_str=input_file.read()
+    return txt_str</p>
+<p>def _save_html_file(path:str, content:str)-&gt;None:
+    with open(path, 'w', encoding='utf-8', errors='xmlcharrefreplace') as output_file:
+        output_file.write(content)</p>
+<p>def main(argv:list)-&gt;None:
+    arg_list = _parse_args(argv)
+    if arg_list == []: 
+        print('Error while parsing input arguments')
+        return 
+    md_file_path = arg_list[0]
+    md_content_str = _get_md_file_content(md_file_path)
+    html_content_str = markdown.markdown(md_content_str)
+    html_dir = arg_list[1]
+    html_file_name = os.path.splitext(os.path.basename(md_file_path))[0]
+    html_file_path = html_dir + html_file_name + '.html'
+    _save_html_file(html_file_path, html_content_str)</p>
+<p>if <strong>name</strong>=='<strong>main</strong>':
+    main(sys.argv)
+```</p>
 <hr />
 <h3>Refrences</h3>
 <h3>Links</h3>

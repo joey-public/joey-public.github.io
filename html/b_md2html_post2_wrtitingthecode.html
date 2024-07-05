@@ -1,0 +1,62 @@
+
+<header>
+    <script id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3.0.0/es5/tex-mml-chtml.js">
+    </script>
+    <script>
+    MathJax = {
+      tex: {
+          inlineMath: [['$', '$'], ['\(', '\)']]
+           }
+    };
+    </script>
+</header>
+<h1>Custom md2html: Starting to Code</h1>
+<p><strong>Links:</strong> <a href="./b_md2html_post1_pythonsetup.html">Previous Post</a>&lt;------&gt;<a href="./b_md2html_post3_readmdfile.html">Next Post</a></p>
+<hr />
+<h2>Introduction</h2>
+<p>In the last post I setup a gti repository and python environment for the project. </p>
+<p>In this post I will start the code for the md2html application. </p>
+<h2>Create our script</h2>
+<p>First clone the git repository from github, then move into that directory. For me that's: </p>
+<p><code>bash
+cd ~
+git clone git@github.com:joey-public/MyScripts.git  
+cd MyScripts</code></p>
+<p>Now create the python file you want to edit:</p>
+<p><code>bash
+touch md2html.py</code></p>
+<p>Open this file in any text editor you want. I like to use vim:</p>
+<p><code>bash
+nvim md2html.py</code></p>
+<h2>Hello Markdown!</h2>
+<p>First lets just make sure that we have the <code>markdown</code> library and that it is working. Inside the <code>md2tml.py</code> file copy the following code.</p>
+<p>```Python
+import markdown</p>
+<p>md_str = r"""# Title
+hello world!
+"""</p>
+<p>html = markdown.markdown(md_str)
+print(type(html))
+print(html)
+```</p>
+<p>The result from running your script should be:</p>
+<p>```bash
+<class 'str'></p>
+<h1>Title</h1>
+<p>hello world!</p>
+<p>```</p>
+<p>We can see that <code>markdown</code> import is working and that the <code>markdown.markdown()</code> function call is successfully converting our input markdown style string into valid html code. </p>
+<p>We can also see that the <code>markdown()</code> function returns a string to us containing html code. It is up to the user to decide what to do with that string. </p>
+<p>Lets try one more quick trick in this post. Try sending the output of m<code>md2html</code> program into a new html file we will call <code>out.html</code>. Then open the html file in your browser of choice. I will use Firefox and call it from the terminal, but you should also be able to click the <code>out.html</code> file inside of any file browser. </p>
+<p><code>bash
+python md2html.py &gt; out.html
+firefox out.html &amp;</code></p>
+<p>You should be able to see your file rendering in the browser! Note the <code>&lt;class 'str'&gt;</code> inside of <code>out.html</code> is not needed and you can delete that line, but it does not really matter much since this is just a demonstration. </p>
+<h2>Conclusion</h2>
+<p>In this Post I created our script and generated our first html file! In the next post I will update the <code>md2html</code> script to read in a markdown file as an input argument.</p>
+<hr />
+<h3>References</h3>
+<h3>Links</h3>
+<p><a href="./b_md2html_post1_pythonsetup.html">Previous Post</a></p>
+<p><a href="./b_md2html_post3_readmdfile.html">Next Post</a></p>
