@@ -19,14 +19,15 @@
 <p>In this section we will add an extension to the <code>markdown.markdown()</code> funciton, and we will also add a header to our <code>html_content_str</code> so that the javascript based mathjax engine is enabled. </p>
 <h2>Adding an extension</h2>
 <p>By default the <code>markdown</code> python library we are using only support the most basic markdown specification. This is actually pretty much all I need, but I will be adding one extra feature. The [fenced code blocks][0] extension can be added to our <code>md2html</code> script by editing the <code>markdown.markdown()</code> function call to include a second argument for extensions. For our purpose I like to define a constant for the extensions at the top of the python script right under the import statements:</p>
-<p>```Python
-import os 
+<pre><code>import os 
 import sys
-import markdown</p>
-<p>EXTENSIONS = ['fenced_code']
-```</p>
+import markdown
+
+EXTENSIONS = ['fenced_code']
+</code></pre>
 <p>And then I simply edit the <code>markdown.markdown()</code> call like this:</p>
-<p><code>html_content_str = markdown.markdown(md_content_str, extensions=EXTENSIONS)</code></p>
+<pre><code>html_content_str = markdown.markdown(md_content_str, extensions=EXTENSIONS)
+</code></pre>
 <p>This is the only extension I need for now. In fact all of the posts about this markdown generator were written in markdown, and converted to html with just this simple script. I am actually mainly writing all these to test out my markdown to html website workflow. </p>
 <p>The python markdown libray has robust support for custom extensions and a good list of already available extensions. In fact there are even some very solid [official extensions][1] supported.</p>
 <h2>Adding Support for Math</h2>
@@ -38,49 +39,50 @@ $$</p>
 <p>At first I tought I would need to use the mathjax plugin but then after a lot of time messing around I realized that...</p>
 <p><strong>You can support mathjax without relying on any additional markdown extensions</strong></p>
 <p>...The extension that currently exists is makes our markdown compatable with mathjax 2.*, but if your browser supports mathjax3 (it probably does) then you just need to add the proper script tags to the beginning of your html file. You can find the most up to date info in the [offical mathjax documentation][2], but for me the adding mathjax support as simple as definin another constant at the top of <code>md2html</code>:</p>
-<p>```Python
-MDX_HTML_HEADER = """</p>
-<header>
-    <script id="MathJax-script" async
-      src="https://cdn.jsdelivr.net/npm/mathjax@3.0.0/es5/tex-mml-chtml.js">
-    </script>
-    <script>
+<pre><code>MDX_HTML_HEADER = """
+&lt;header&gt;
+    &lt;script id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3.0.0/es5/tex-mml-chtml.js"&gt;
+    &lt;/script&gt;
+    &lt;script&gt;
     MathJax = {
       tex: {
           inlineMath: [['$', '$'], ['\(', '\)']]
            }
     };
-    </script>
-</header>
-<p>"""
-```</p>
+    &lt;/script&gt;
+&lt;/header&gt;
+"""
+```
+</code></pre>
 <p>and then just addin this header to the fromt of my <code>html_content_str</code> before saving it to a file like this:</p>
-<p><code>Python
-html_content_str = MDX_HTML_HEADER + html_content_str</code></p>
+<pre><code>html_content_str = MDX_HTML_HEADER + html_content_str
+</code></pre>
 <h2>Conclusion</h2>
 <p>That is it! That is all I need! A simple script that can turn my markdown into html. It has exactly the features that I want it to have and no more! Now I plan to use this script to generate content for this site. As I use it if there are any feature I decide to add I may continue this series. </p>
 <p>Here is the final <code>md2html.py</code> script:</p>
-<p>```Python
-import sys
+<pre><code>import sys
 import os
-import markdown</p>
-<p>EXTENSIONS=['fenced_code']
-MDX_HTML_HEADER = """</p>
-<header>
-    <script id="MathJax-script" async
-      src="https://cdn.jsdelivr.net/npm/mathjax@3.0.0/es5/tex-mml-chtml.js">
-    </script>
-    <script>
+import markdown
+
+EXTENSIONS=['fenced_code']
+MDX_HTML_HEADER = """
+&lt;header&gt;
+    &lt;script id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3.0.0/es5/tex-mml-chtml.js"&gt;
+    &lt;/script&gt;
+    &lt;script&gt;
     MathJax = {
       tex: {
           inlineMath: [['$', '$'], ['\(', '\)']]
            }
     };
-    </script>
-</header>
-<p>"""</p>
-<p>def _parse_args(argv:list)-&gt;list:
-    usage_str = 'usage: python md2html.py <input.md>'
+    &lt;/script&gt;
+&lt;/header&gt;
+"""
+
+def _parse_args(argv:list)-&gt;list:
+    usage_str = 'usage: python md2html.py &lt;input.md&gt;'
     n_args=len(argv)
     expected_n_args = 3
     if not(n_args==expected_n_args):
@@ -102,32 +104,37 @@ MDX_HTML_HEADER = """</p>
     #If we make it here we know both arguments are good
     md_file_str = argv[1]
     html_dir_str = argv[2]
-    return [md_file_str, html_dir_str]</p>
-<p>def _get_md_file_content(path:str)-&gt;str:
+    return [md_file_str, html_dir_str]
+
+def _get_md_file_content(path:str)-&gt;str:
     with open(path, 'r', encoding='utf-8') as input_file:
         txt_str=input_file.read()
-    return txt_str</p>
-<p>def _save_html_file(path:str, content:str)-&gt;None:
+    return txt_str
+
+def _save_html_file(path:str, content:str)-&gt;None:
     with open(path, 'w', encoding='utf-8', errors='xmlcharrefreplace') as output_file:
-        output_file.write(content)</p>
-<p>def md2html(md_file_path:str, html_dir:str)-&gt;None:
+        output_file.write(content)
+
+def md2html(md_file_path:str, html_dir:str)-&gt;None:
     md_content_str = _get_md_file_content(md_file_path)
     html_content_str = markdown.markdown(md_content_str, extension=EXTENSIONS)
     html_content_str = MDX_HTML_HEADER + html_content_str
     html_file_name = os.path.splitext(os.path.basename(md_file_path))[0]
     html_file_path = html_dir + html_file_name + '.html'
-    _save_html_file(html_file_path, html_content_str)</p>
-<p>def main(argv:list)-&gt;None:
+    _save_html_file(html_file_path, html_content_str)
+
+def main(argv:list)-&gt;None:
     arg_list = _parse_args(argv)
     if arg_list == []: 
         print('Error while parsing input arguments')
         return 
     md_file_path = arg_list[0]
     html_dir = arg_list[1]
-    md2html(md_file_path, html_dir)</p>
-<p>if <strong>name</strong>=='<strong>main</strong>':
+    md2html(md_file_path, html_dir)
+
+if __name__=='__main__':
     main(sys.argv)
-```</p>
+</code></pre>
 <hr />
 <h3>Refrences</h3>
 <h3>Links</h3>

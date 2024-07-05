@@ -18,7 +18,7 @@ The first thing I do whenever I start a new code project is to create a git repo
 
 If you have never used a python virtual environment, then you should really check it out.
 
-This (YouTube video)[0] gives a great introduction to using the built in `venv` module in python if you want to learn more. 
+This [YouTube video][0] gives a great introduction to using the built in `venv` module in python if you want to learn more. 
 
 I am working on a machine with Ubuntu 20.04 LTS so all of the instructions here assume that you are on a Linux machine with a bash shell. If you have another operating system or shell the general steps are the same, but the exact commands might differ. 
 

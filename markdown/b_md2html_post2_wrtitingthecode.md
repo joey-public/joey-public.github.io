@@ -60,7 +60,7 @@ We can see that `markdown` import is working and that the `markdown.markdown()` 
 
 We can also see that the `markdown()` function returns a string to us containing html code. It is up to the user to decide what to do with that string. 
 
-Lets try one more quick trick in this post. Try sending the output of m`md2html` program into a new html file we will call `out.html`. Then open the html file in your browser of choice. I will use Firefox and call it from the terminal, but you should also be able to click the `out.html` file inside of any file browser. 
+Lets try one more quick trick in this post. Try sending the output of m`md2html` program into a new html file we will call `out.html`. 
 
 ```bash
 python md2html.py > out.html

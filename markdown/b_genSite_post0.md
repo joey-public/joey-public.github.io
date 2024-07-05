@@ -27,14 +27,12 @@ I host this site using [Github Pages][0]. This is an easy and free way to host t
 
 The file structure of my site will look like this:
 
-```
-my_site
-----index.html
-----markdown/
-----html/
-----images/
-----templates/
-```
+    my_site
+    ----index.html
+    ----markdown/
+    ----html/
+    ----images/
+    ----templates/
 
 ## Naming Conventions 
 
