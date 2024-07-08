@@ -8,12 +8,14 @@ ___
 
 In the last post we ended with this in our `md2html.py` script. Notice the `markdown.markdown()` function is basically doing all the work for us. We just need to pass it a string representation of the markdown file we want to convert, and then save the html string it returns into a new html file. 
 
-    import markdown
+```Python
+import markdown
         
-    md_str = '# Title \nhello world!'
-    html = markdown.markdown(md_str)
-    print(type(html))
-    print(html)
+md_str = '# Title \nhello world!'
+html = markdown.markdown(md_str)
+print(type(html))
+print(html)
+```
 
 In this post we will focus on updating our script to accept an input file as an argument from the command line. 
 

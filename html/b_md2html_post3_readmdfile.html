@@ -16,7 +16,7 @@
 <hr />
 <h2>Introduction</h2>
 <p>In the last post we ended with this in our <code>md2html.py</code> script. Notice the <code>markdown.markdown()</code> function is basically doing all the work for us. We just need to pass it a string representation of the markdown file we want to convert, and then save the html string it returns into a new html file. </p>
-<pre><code>import markdown
+<pre><code class="language-Python">import markdown
 
 md_str = '# Title \nhello world!'
 html = markdown.markdown(md_str)

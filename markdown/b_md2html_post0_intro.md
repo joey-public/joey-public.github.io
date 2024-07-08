@@ -10,9 +10,7 @@ I want to create a custom tool to convert markdown notes into HTML files that ca
 
 If you are looking for a tool that just works then you should really consider using [`pandoc`][0]. You can use this tool to convert your markdown files into `.html`, `.pdf`, `.docx`, or almost any format you can imagine. I have used it before and it is an excellent tool and much much better than anything I could possibly make. 
 
-Still I like to work on little projects and I think it would be fun to implement my own custom tool for this task that does just exactly what I want it to do and nothing more. 
-
-I plan to make a few blog posts about this project to get it into a basic working state. Once the tool is workable then I will use it to do all of the markdown to html conversion for posts on my site! As I use the tool if there are features I wish it had, I will try to add them one by one and do my best to also create a blog post for each new feature. 
+I plan to make a few posts about this project to get it into a basic working state. Once the tool is workable then I will use it to do all of the markdown to html conversion for posts on my site! As I use the tool if there are features I wish it had, I will try to add them one by one and do my best to also create a blog post for each new feature. 
 
 ## Requirements 
 
@@ -25,7 +23,7 @@ To get started lets define the most basic requirements of the tool:
 - Support for math 
     - Using `$...$` for inline math and `$$...$$` for a math block
 - Support for inline HTML
-    - As a fallback for anything we want to be in the html file that is not simple to represent in a markdown file \(eg tables\)
+    - As a fallback for anything we want to be in the html file that is not simple to represent in a markdown file.
 
 ## Conclusion
 

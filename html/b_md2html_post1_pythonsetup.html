@@ -14,32 +14,34 @@
 <h1>Custom md2html: Environment Setup</h1>
 <p><strong>Links:</strong> <a href="./b_md2html_post0_intro.html">Previous Post</a>&lt;------&gt;<a href="./b_md2html_post2_writingthecode.html">Next Post</a></p>
 <hr />
-<h2>Introdution</h2>
+<h2>Introduction</h2>
 <p>In the previous post I created a list of the requirements for the custom markdown to html tool that I am creating.  </p>
 <p>In this blog post I will cover how to setup my environment for this project. </p>
-<h2>Create a git Repository on GitHub</h2>
-<p>The first thing I do whenever I start a new code project is to create a git repository on GitHub for it. Then I clone the empty repository to my computer. </p>
 <h2>Setting up a Python Virtual Environment</h2>
-<p>If you have never used a python virtual environment, then you should really check it out.</p>
+<p>It is a good idea to create a virtual environment when starting a new python environment. </p>
 <p>This <a href="https://www.youtube.com/watch?v=28eLP22SMTA&amp;t=99s">YouTube video</a> gives a great introduction to using the built in <code>venv</code> module in python if you want to learn more. </p>
 <p>I am working on a machine with Ubuntu 20.04 LTS so all of the instructions here assume that you are on a Linux machine with a bash shell. If you have another operating system or shell the general steps are the same, but the exact commands might differ. </p>
-<p>Anyways to create an environment named <code>myenv</code> int the <code>~/PythonEnvs/</code> directory type the following into your terminal on Linux:</p>
-<p><code>mkdir ~/PythonEnvs
+<p>To create an environment named <code>myenv</code> in the <code>~/PythonEnvs/</code> directory type the following into your terminal on Linux:</p>
+<pre><code>mkdir ~/PythonEnvs
 cd ~/PythonEnvs
-python3 -m venv myenv</code></p>
+python3 -m venv myenv
+</code></pre>
 <p>Now to activate the newly created environment:</p>
-<p><code>source ~/PythonEnvs/myenv/bin/activate</code></p>
-<p>Next with this new environment active we can update pip and install all the python packages we will need for this project. We should only need the <code>markdown</code> library. </p>
-<p><code>python -m pip install --upgrade pip
-python -m pip install markdown</code></p>
-<p>For good measure we can create a <code>requirements.txt</code> file that can be used to setup this exact environment on any other computer you might be on. </p>
-<p><code>python -m pip freeze &gt; requirements.txt</code></p>
-<p>Now we can install these packages into another python environment like this: </p>
-<p><code>python -m pip install -r requirements.txt</code></p>
-<p>Finally if you want to deactivate the environment just use the following command:</p>
-<p><code>deactivate</code></p>
-<h2>Conclusion</h2>
-<p>In this post we got our git respository and python enviornment set. In the ['../html/']</p>
+<pre><code>source ~/PythonEnvs/myenv/bin/activate
+</code></pre>
+<p>Next with this new environment active, update pip and install all the python packages needed for the project. In this case the <code>markdown</code> library is the only library needed. </p>
+<pre><code>python -m pip install --upgrade pip
+python -m pip install markdown
+</code></pre>
+<p>Next create a <code>requirements.txt</code> file that can be used to re-setup this exact environment. </p>
+<pre><code>python -m pip freeze &gt; requirements.txt
+</code></pre>
+<p>To install these packages into another python environment like this: </p>
+<pre><code>python -m pip install -r requirements.txt 
+</code></pre>
+<p>Finally to deactivate the environment just use the following command:</p>
+<pre><code>deactivate
+</code></pre>
 <hr />
 <h3>References:</h3>
 <p><a href="https://www.youtube.com/watch?v=28eLP22SMTA&amp;t=99s">0: Python Programmer Venv Video</a></p>
