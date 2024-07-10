@@ -1,0 +1,43 @@
+
+<header>
+    <script id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3.0.0/es5/tex-mml-chtml.js">
+    </script>
+    <script>
+    MathJax = {
+      tex: {
+          inlineMath: [['$', '$'], ['\(', '\)']]
+           }
+    };
+    </script>
+    <link rel="stylesheet" href="styles.css">
+</header>
+<body>
+<h1>Bluetooth Low Energy</h1>
+<h2>GAP</h2>
+<p>GAP stands for <em>Generic Access Profile</em>.  Normally the GAP protocol is used to establish a connection between two devices so that GATT Services can be used. </p>
+<p>GAP controls connections and advertisements, and makes your device visible to the outside world. </p>
+<p>The two main BLE device roles are:
+- <strong>Peripheral</strong>
+- <strong>Central</strong> </p>
+<p>There are two ways to send advertising out with GAP
+- <strong>Advertising Data:</strong> Manditory, constantly transmitted by peripheral devices, and listened for by central devices
+- <strong>Scan Response:</strong> Optional, secondary payload that the central can request from a peripheral.  </p>
+<h3>Advertising</h3>
+<p>A peripheral is programmed to transmit a 31 byte advertising payload over a predetermined <em>advertising interval.</em> There is no strict rule on the size of the advertising interval, it just depends on what makes sense for a given peripheral in terms of responsiveness vs power draw. </p>
+<p>If the central device is interested it can send a scan response request. If the peripheral is set up to accept it then it will respond with another 31 byte scan response payload. 
+<img alt="BLE Advertising" src="../images/ble_advertising.png" /></p>
+<p>Normally once a connection is established between the peripheral and central device, the peripheral ceases to transmit advertisement data and the devices switch to using GATT services to communicate privately. </p>
+<h2>GATT</h2>
+<p>GATT stands for <em>Generic ATTribute</em> </p>
+<p>It defines how two devices send data back and fourth using <em>services</em> and <em>characteristics</em></p>
+<p><em>GATT connections are exclusive:</em> a ble peripheral can only be connected to a single ble central device at a time. A central device can be connected to many peripherals. </p>
+<h3>GATT Transactions</h3>
+<p>The Peripheral is know as the <strong>GATT Server</strong> and the central is known as the <strong>GATT Client</strong>. </p>
+<p>All transactions start by a request sent out by the GATT Client, which receives a response from the GATT server. </p>
+<h3>Profiles, Services, and Characteristics</h3>
+<p><img alt="BLE Profile" src="../images/ble_profile_service_char.png" /></p>
+<hr />
+<h3>References</h3>
+<p>https://learn.adafruit.com/introduction-to-bluetooth-low-energy/gap</p>
+</body>
