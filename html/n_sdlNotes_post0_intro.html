@@ -1,0 +1,58 @@
+
+<header>
+    <script id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3.0.0/es5/tex-mml-chtml.js">
+    </script>
+    <script>
+    MathJax = {
+      tex: {
+          inlineMath: [['$', '$'], ['\(', '\)']]
+           }
+    };
+    </script>
+    <link rel="stylesheet" href="styles.css">
+</header>
+<body>
+<h1>SDL Notes</h1>
+<h2>Steps to display something on the screen with SDL</h2>
+<p>In order to display an image on your screen with SDL you must follow the following general steps:</p>
+<ol>
+<li>Initialize SDL </li>
+<li>Create a valid SDL window</li>
+<li>Create a valid SDL Renderer(optional as you can blit surfaces directly , but you usally want this)</li>
+<li>Load an image into a <code>SDL_Surface</code></li>
+<li>Convert into a <code>SDL_Surface</code> into an optimized <code>SDL_Surface</code> or into a <code>SDL_Texture</code><ul>
+<li>see the Surfaces vs Textures section for more info</li>
+<li>THis is also technically optional as you can blit a raw surface to your window, but I don't think there are many practial reasons to do that</li>
+</ul>
+</li>
+<li>Free the old raw SDL_Surface is no longer needed</li>
+<li>Clear the Screen</li>
+<li>Render the texture</li>
+<li>Destroy the Texuture, Renderer, and Window</li>
+<li>Quit SDL</li>
+</ol>
+<h2>Global variables</h2>
+<p>In a lot of tutorials the author makes the a global <code>SDL_Window</code> and <code>SDL_Renderer</code>. This saves some time for a quick small program, but I think it would make it pretty difficult to debug larger programs. For that reason I will try to rewrite example ode to not use any global variables. </p>
+<h2>The Window</h2>
+<p>The <code>SDL_Window</code> is basically a container for everything you want to display on the screen. </p>
+<h2>Screen</h2>
+<h2>Surfaces vs Textures</h2>
+<p>SDL defines both <code>SDL_Surface</code> and <code>SDL_Texture</code> for rendering images to your screen. </p>
+<p>For a good description of thier difference see this <a href="https://stackoverflow.com/questions/21392755/difference-between-surface-and-%20texture-sdl-general">stack overflow post</a>.</p>
+<ul>
+<li><code>SDL_Texture</code>: Is allows for <strong>hardware</strong>(GPU) rendering of an image. Basically stores your image in VRAM and uses whater GPU to render the images very quickly. </li>
+<li><code>SDL_Surface</code>: Is uses <strong>software</strong>(CPU) rendering of an image. Stores the image data in normal RAM. </li>
+</ul>
+<p>Normally its best to use the <code>SDL_Texture</code> for the increased rendering spees, but if you need direct memory acess to the image you are displaying you may want to consider <code>SDL_Surface</code> .</p>
+<h2>Game Loop</h2>
+<p>pikuma has an excellent tutorial on youtube explaining makeing a game loop in C using the SDL library. He explains what he is doing and why, instead of just showing code with little explination. </p>
+<p>He actually covers everything from installing SDL all the way to implementing a simple game loop. The first 30 minutes are a bit slow, but that is almost all just talking about how to setup SDL on a windows computer. If you are on linux it is a very quik setup. </p>
+<h2>Renderer</h2>
+<h3>References</h3>
+<p><a href="https://lazyfoo.net/tutorials/SDL/index.php">LazyFoo Tutorials</a></p>
+<p><a href="https://stackoverflow.com/questions/21392755/difference-between-surface-and-%20texture-sdl-general">Stack Overflow SDL_Texture vs SDL_Surface</a></p>
+<p><a href="https://stackoverflow.com/questions/21007329/what-is-an-sdl-renderer/21007477#21007477">Stack Overflow SDL_Window, SDL_Renderer, SDL_Surface, and SDL_Texture</a></p>
+<p>[YouTube pikuma Game Loop with SDL Tutorial][3]
+[3]: </p>
+</body>
