@@ -1,5 +1,6 @@
+PYTHON = ~/PythonEnvs/myenv/bin/python
 build:
-	python ~/MyScripts/genSite.py ./markdown/ ./html/ 
+	$(PYTHON) ~/MyScripts/genSite.py ./markdown/ ./html/ 
 
 publish:
 	git add -A
