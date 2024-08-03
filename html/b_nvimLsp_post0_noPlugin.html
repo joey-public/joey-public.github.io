@@ -1,0 +1,44 @@
+
+<header>
+    <script id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3.0.0/es5/tex-mml-chtml.js">
+    </script>
+    <script>
+    MathJax = {
+      tex: {
+          inlineMath: [['$', '$'], ['\(', '\)']]
+           }
+    };
+    </script>
+    <link rel="stylesheet" href="styles.css">
+</header>
+<body>
+<h1>Setting up a C/C++ LSP in NeoVim with No Plugin Manager</h1>
+<p>Here are the steps to get the clangd lsp up and running with neovim if you are using ubuntu linux like I am.</p>
+<ol>
+<li>Download the <a href="https://github.com/clangd/clangd/releases/tag/18.1.3">latest release</a> of the clangd LSP from GitHub</li>
+<li>Unzip it in your home directory,  This command should work on ubuntu <code>unzip ~/Downloads/clangd-linux-18.1.3/ -d ~/lsp</code></li>
+<li>Install the <code>nvim-lspconfig</code> <a href="https://github.com/neovim/nvim-lspconfig">package</a> directly with git: <code>git clone https://github.com/neovim/nvim-lspconfig ~/.config/nvim/pack/nvim/start/nvim-lspconfig</code> </li>
+<li>At the bottom of your <code>~/.config/nvim/init.lua</code> add this code copied from the <a href="https://clangd.llvm.org/installation">clangd website</a></li>
+</ol>
+<pre><code>local lspconfig = require('lspconfig')
+lspconfig.clangd.setup({
+  name = 'clangd',
+  cmd = {'clangd', '--background-index', '--clang-tidy', '--log=verbose'},
+  initialization_options = {
+    fallback_flags = { '-std=c++17' },
+  },
+})
+</code></pre>
+<p>That is it. Now when you open a C or C++ file in nvim you should see:</p>
+<ul>
+<li>Warning and Error Messages By default</li>
+<li>Better Syntax Highlighting</li>
+<li>Working omni competition with <code>&lt;C-x&gt;&lt;C-o&gt;</code> while typing in insert mode </li>
+<li>Working go to definitions with <code>&lt;C-]&gt;</code> and back with <code>&lt;C-t&gt;</code></li>
+<li>Working Fucntion Definition Popups <code>K</code> in normal mode, <code>&lt;C-ww&gt;</code> to enter the popup window</li>
+</ul>
+<p>There are more features, but those are basically 99% of what I want to do. </p>
+<p>The only issue at this point is that you may have some bogus error messages about some of your header files. You can see the <a href="https://clangd.llvm.org/installation">Project Setup</a> documentation.</p>
+<p>The Screenshots below show what my Neovim looked like before and after following these instructions. </p>
+</body>
