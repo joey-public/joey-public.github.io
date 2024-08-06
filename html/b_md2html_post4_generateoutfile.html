@@ -20,9 +20,8 @@
 <p>In this post I will talk about how to save a string into a file with python. This way ourmd to html converter can actually save its output.  </p>
 <h2>Updated arg Parsing</h2>
 <p>In the last section we programmed the <code>_parse_args()</code> function to verify we had a valid input markdown file. Now we want to make sure we have a second argumet. We want the second argument to be the directory/folder where we want to store the output html. </p>
-<pre><code>Update the `_parse_args()` funciton to look like this:
-
-def _parse_args(argv:list)-&gt;list:
+<p>Update the <code>_parse_args()</code> funciton to look like this:</p>
+<pre><code>def _parse_args(argv:list)-&gt;list:
     usage_str = 'usage: python md2html.py &lt;input.md&gt;'
     n_args=len(argv)
     expected_n_args = 3

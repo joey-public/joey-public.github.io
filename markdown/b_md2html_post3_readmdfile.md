@@ -54,9 +54,9 @@ Right now we will work on getting the `<input_md_file_path>` argument passed int
     if __name__=='__main__':
         main(sys.argv)
 
-In python if `__name__=='main'` is always run first. We use this ans pass the results of a `sys.argv()` call into our `main()` function. Then we create a function where we will later fill out to parse the input arguments, but for now we just have it print out the results of the `sys.arv()` call so we can see what that looks like. 
+In python if `__name__=='main'` always runs first. Here it simply passes the results of a `sys.argv()` into the `main()` function. The `_parse_args()` function prints the results of the `sys.arv()` call. For now the `main()` function creates a markdown formatted string, then uses the `markdown.markdown()` function to convert it into html. The results of the conversion are printed to verify the functionality of the library.  
 
-Running the script like this:
+Run the script like this:
 
     python md2html.py ./temp.md
 
@@ -67,7 +67,7 @@ results in the following output:
     <h1>Title</h1>
     <p>hello world!</p>
 
-The `sys.argv()` function returns a list of strings. The first element in the list is the python program we are running. Then each element after that is an argument (separated by 1 blank space).
+Observe that the `sys.argv()` function returns a list of strings. The first element in the list is the python program we are running. Then each element after that is an argument (separated by 1 blank space).
 
 ## Parsing the Arguments
 

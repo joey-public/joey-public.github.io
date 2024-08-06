@@ -11,7 +11,7 @@ In this post I will talk about how to save a string into a file with python. Thi
 
 In the last section we programmed the `_parse_args()` function to verify we had a valid input markdown file. Now we want to make sure we have a second argumet. We want the second argument to be the directory/folder where we want to store the output html. 
 
-    Update the `_parse_args()` funciton to look like this:
+Update the `_parse_args()` funciton to look like this:
     
     def _parse_args(argv:list)->list:
         usage_str = 'usage: python md2html.py <input.md>'

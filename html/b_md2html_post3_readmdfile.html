@@ -54,8 +54,8 @@ def main(argv:list)-&gt;None:
 if __name__=='__main__':
     main(sys.argv)
 </code></pre>
-<p>In python if <code>__name__=='main'</code> is always run first. We use this ans pass the results of a <code>sys.argv()</code> call into our <code>main()</code> function. Then we create a function where we will later fill out to parse the input arguments, but for now we just have it print out the results of the <code>sys.arv()</code> call so we can see what that looks like. </p>
-<p>Running the script like this:</p>
+<p>In python if <code>__name__=='main'</code> always runs first. Here it simply passes the results of a <code>sys.argv()</code> into the <code>main()</code> function. The <code>_parse_args()</code> function prints the results of the <code>sys.arv()</code> call. For now the <code>main()</code> function creates a markdown formatted string, then uses the <code>markdown.markdown()</code> function to convert it into html. The results of the conversion are printed to verify the functionality of the library.  </p>
+<p>Run the script like this:</p>
 <pre><code>python md2html.py ./temp.md
 </code></pre>
 <p>results in the following output:</p>
@@ -64,7 +64,7 @@ if __name__=='__main__':
 &lt;h1&gt;Title&lt;/h1&gt;
 &lt;p&gt;hello world!&lt;/p&gt;
 </code></pre>
-<p>The <code>sys.argv()</code> function returns a list of strings. The first element in the list is the python program we are running. Then each element after that is an argument (separated by 1 blank space).</p>
+<p>Observe that the <code>sys.argv()</code> function returns a list of strings. The first element in the list is the python program we are running. Then each element after that is an argument (separated by 1 blank space).</p>
 <h2>Parsing the Arguments</h2>
 <p>The <code>_parse_args()</code> function should take in the <code>sys.argv()</code> results, check that they are valid, and return them if they are. In this case we want to make sure exactly 1 argument is passed and that it is a valid path to an existing markdown file. Import the <code>os</code> library and we can do the argument parsing like this. </p>
 <pre><code>import os
