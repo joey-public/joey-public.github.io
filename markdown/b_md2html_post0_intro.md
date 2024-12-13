@@ -6,15 +6,13 @@ ___
 
 ## Introduction
 
-I want to create a custom tool to convert markdown notes into HTML files that can be viewed in the browser. This will be a simple tool, and the goal is more to learn and practice some python coding. 
+I want to create a custom tool to convert markdown notes into HTML files that can be viewed in the browser. The goal is more to learn and practice some python coding. 
 
-If you are looking for a tool that just works then you should really consider using [`pandoc`][0]. You can use this tool to convert your markdown files into `.html`, `.pdf`, `.docx`, or almost any format you can imagine. I have used it before and it is an excellent tool and much much better than anything I could possibly make. 
-
-I plan to make a few posts about this project to get it into a basic working state. Once the tool is workable then I will use it to do all of the markdown to html conversion for posts on my site! As I use the tool if there are features I wish it had, I will try to add them one by one and do my best to also create a blog post for each new feature. 
+If you are looking for a tool that just works then you should consider using [`pandoc`][0]. You can use this tool to convert your markdown files into `.html`, `.pdf`, `.docx`, or almost any format you can imagine. It is an excellent tool. 
 
 ## Requirements 
 
-To get started lets define the most basic requirements of the tool:
+To get started lets outline some most basic requirements of the tool:
 
 - Run from command line `python md2html <input_md_file_path> <output_html_dir>`
 - Take in a plane text markdown file and convert it to a html file that can be rendered in any browser 

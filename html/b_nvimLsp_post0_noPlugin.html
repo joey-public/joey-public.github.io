@@ -13,15 +13,18 @@
     <link rel="stylesheet" href="styles.css">
 </header>
 <body>
-<h1>Setting up a C/C++ LSP in NeoVim with No Plugin Manager</h1>
-<p>Here are the steps to get the clangd lsp up and running with neovim if you are using ubuntu linux like I am.</p>
+<h1>Setting up and using different LSPs in neovim with no Plugins</h1>
+<h2>TLDR: Setup C/C++ and lua LSP in 5 min with No plugins</h2>
+<p>First cheat and install a single plugin manually with this terminal command:</p>
+<pre><code>git clone https://github.com/neovim/nvim-lspconfig ~/.config/nvim/pack/nvim/start/nvim-lspconfig
+</code></pre>
+<p>To install clang and configure neovim to work with it:</p>
 <ol>
 <li>Download the <a href="https://github.com/clangd/clangd/releases/tag/18.1.3">latest release</a> of the clangd LSP from GitHub</li>
 <li>Unzip it in your home directory,  This command should work on ubuntu <code>unzip ~/Downloads/clangd-linux-18.1.3/ -d ~/lsp</code></li>
-<li>Install the <code>nvim-lspconfig</code> <a href="https://github.com/neovim/nvim-lspconfig">package</a> directly with git: <code>git clone https://github.com/neovim/nvim-lspconfig ~/.config/nvim/pack/nvim/start/nvim-lspconfig</code> </li>
 <li>At the bottom of your <code>~/.config/nvim/init.lua</code> add this code copied from the <a href="https://clangd.llvm.org/installation">clangd website</a></li>
 </ol>
-<pre><code>local lspconfig = require('lspconfig')
+<pre><code class="language-lua">local lspconfig = require('lspconfig')
 lspconfig.clangd.setup({
   name = 'clangd',
   cmd = {'clangd', '--background-index', '--clang-tidy', '--log=verbose'},
@@ -30,15 +33,63 @@ lspconfig.clangd.setup({
   },
 })
 </code></pre>
-<p>That is it. Now when you open a C or C++ file in nvim you should see:</p>
-<ul>
-<li>Warning and Error Messages By default</li>
-<li>Better Syntax Highlighting</li>
-<li>Working omni competition with <code>&lt;C-x&gt;&lt;C-o&gt;</code> while typing in insert mode </li>
-<li>Working go to definitions with <code>&lt;C-]&gt;</code> and back with <code>&lt;C-t&gt;</code></li>
-<li>Working Fucntion Definition Popups <code>K</code> in normal mode, <code>&lt;C-ww&gt;</code> to enter the popup window</li>
-</ul>
-<p>There are more features, but those are basically 99% of what I want to do. </p>
-<p>The only issue at this point is that you may have some bogus error messages about some of your header files. You can see the <a href="https://clangd.llvm.org/installation">Project Setup</a> documentation.</p>
-<p>The Screenshots below show what my Neovim looked like before and after following these instructions. </p>
+<p>To install lua_ls and configure neovim to work with it:</p>
+<ol>
+<li>Install the <code>lua-language-server</code> following the neovim instructions found <a href="https://luals.github.io/#neovim-installhttps://luals.github.io/#neovim-install">here</a></li>
+<li>At the bottom of your <code>~/.config/nvim/init.lua</code> add this code copied from the same instructions</li>
+</ol>
+<pre><code>require'lspconfig'.lua_ls.setup{}
+</code></pre>
+<h2>Introduction</h2>
+<p>By far the biggest issue I have run into with neovim is how complicated setting up auto-completion can feel. In order of importance to me here are the things I want to be able to do inside of neovim that an LSP will help me with.</p>
+<ol>
+<li><strong>function definitions</strong>: I want to use <code>&lt;shift-k&gt;</code> in normal mode to have a window pop-up with the function definition and arguments for the function my cursor is currently over.</li>
+<li><strong>jump to definition</strong>: I want to use the <code>&lt;ctrl-]&gt;</code> shortcut in normal mode to jump to the definition of the function that my cursor is currently over. And use <code>&lt;ctrl-t</code> to jump back.</li>
+<li><strong>omni-complete</strong>: I want to press <code>&lt;ctrl-x&gt;&lt;ctrl-o&gt;</code> in insert mode to get omni-completions for the functions/parameters or whatever that are available in a module/class. </li>
+</ol>
+<p>As far as I can tell there are 2 ways to achieve what I want. </p>
+<ol>
+<li>nvim-lsp </li>
+<li>universal-ctags</li>
+</ol>
+<p>I want to try both of these eventually, but for this post focuses on a plugin-free way of using the built in neovim lsp support to achieve my 3 goals for (hopefully) any language.</p>
+<h3>I Lied We Want One Plugin</h3>
+<p>When I said no plugins I really meant no plugin manager.</p>
+<p>In the past when I tried to follow tutorials on lsp setup in neovim, they always being the same way. "First Install <insert whatever is the cool new plugin manager>". No. I don't wanna. I just want these 3 simple things. What the fuck is lazy loading. I just want to write my code. I don't care if my neovim takes 30ms instead of 10ms to open. Then the tutorial goes on to install like 6 plugins just for these 3 features that are already like 95% built into vim. </p>
+<p>All I need for what I want to achieve is a single plugin <code>nvim-lspconfig</code>, and dammit I don't need a package manager to do it. I can read. Well actually Im not that good at reading, but I can copy and paste a single command from the <code>nvim-lspconfig</code> <a href="https://github.com/neovim/nvim-lspconfig">repository</a></p>
+<p>To install the <code>nvim-lspconfig</code> plugin without any plugin manager use this one terminal command. </p>
+<pre><code>git clone https://github.com/neovim/nvim-lspconfig ~/.config/nvim/pack/nvim/start/nvim-lspconfig
+</code></pre>
+<p>The <code>~/.config/nvim/pack/</code> directory is in neovim <code>runtimepath</code> and is where neovim will look to load packages on startup. Or something like that idk, its all explained if you type <code>:help packages</code> inside of neovim. The main thing is you cannot just clone the <code>nvim-lspconfig</code> repo anywhere and expect neovim to know where that shit is.</p>
+<p>With this one plugin our neovim is all setup to run any LSP we want to use. </p>
+<h3>Setting up clangd LSP for C/C++ auto-completion</h3>
+<p>Now neovim is all setup to act as a client to any Language Server you may want to use, but we still need to install the language server. The language server is just some other program you run on your computer that neovim can imitate and talk to. Idk read <code>:help lsp</code> fo an actual explination.</p>
+<p>One popular language server is <code>clangd</code> which can be used for the C/C++ programming language. You can install it and get my 3 golden features in just 3 steps:</p>
+<ol>
+<li>Download the <a href="https://github.com/clangd/clangd/releases/tag/18.1.3">latest release</a> of the clangd LSP from GitHub</li>
+<li>Unzip it in your home directory,  This command should work on ubuntu <code>unzip ~/Downloads/clangd-linux-18.1.3/ -d ~/lsp</code></li>
+<li>At the bottom of your <code>~/.config/nvim/init.lua</code> add this code copied from the <a href="https://clangd.llvm.org/installation">clangd website</a></li>
+</ol>
+<pre><code class="language-lua">local lspconfig = require('lspconfig')
+lspconfig.clangd.setup({
+  name = 'clangd',
+  cmd = {'clangd', '--background-index', '--clang-tidy', '--log=verbose'},
+  initialization_options = {
+    fallback_flags = { '-std=c++17' },
+  },
+})
+</code></pre>
+<p>Note 0: This config is so simple thanks the <code>nvim-lspconfig</code> plugin that is being required in the first line. You don't technically need the plugin, you could figure out how to configure neovim to talk to clangd. See <code>:help lsp</code> if you want to deal with that.</p>
+<p>Note 1: You could also organize this better then just having it in your <code>~/.config/nvim/.init.lua</code> file, but thats not the point of the post. The point is this works.  </p>
+<p>Now if you close neovim and open up a C or C++ file you should have all the nice LSP Features working. </p>
+<h3>Setting up lua_ls LSP for lua autocompletion</h3>
+<p>Unsurprisingly we can setup autocompletion for lua files in a similar fashion. </p>
+<ol>
+<li>Install the <code>lua-language-server</code> following the neovim instructions found <a href="https://luals.github.io/#neovim-installhttps://luals.github.io/#neovim-install">here</a></li>
+<li>At the bottom of your <code>~/.config/nvim/init.lua</code> add this code copied from the same instructions</li>
+</ol>
+<pre><code>require'lspconfig'.lua_ls.setup{}
+</code></pre>
+<p>Note 1: You need to make sure you can run the <code>lua-language-server</code> command from the command line. For me I had to add the path to my $PATH variable. </p>
+<p>Note 2: lua table indexing starts at 1.</p>
 </body>

@@ -1,17 +1,20 @@
 PTHON = ~/PythonEnvs/myenv/bin/python
-GEN_SITE = ~/MyScripts/python/genSite.py
+GEN_SITE = ./genSite.py
 REFRESH_FFOX = ./ffox_update.sh
 
 MD_DIR = ./markdown
 HTML_DIR = ./html
 EPUB_DIR = ./epub
 
-SHELL := /bin/bash
+#SHELL := /bin/bash
 
 build:
 	$(PYTHON) $(GEN_SITE) ./markdown/ ./html/ 
 
 vim:
+	$(PYTHON) $(GEN_SITE) ./markdown/ ./html/ 
+
+vim2:
 	$(PYTHON) $(GEN_SITE) ./markdown/ ./html/ 
 	source $(REFRESH_FFOX)
 

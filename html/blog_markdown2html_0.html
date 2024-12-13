@@ -15,11 +15,10 @@
 <body>
 <h1>Custom Markdown to HTML Converter</h1>
 <h2>Introduction</h2>
-<p>I want to create a custom tool to convert markdown notes into HTML files that can be viewed in the browser. This will be a simple tool, and the goal is more to learn and practice some python coding. </p>
-<p>If you are looking for a tool that just works then you should really consider using [<code>pandoc</code>][0]. You can use this tool to convert your markdown files into <code>.html</code>, <code>.pdf</code>, <code>.docx</code>, or almost any format you can imagine. I have used it before and it is an excellent tool and much much better than anything I could possibly make. </p>
-<p>I plan to make a few posts about this project to get it into a basic working state. Once the tool is workable then I will use it to do all of the markdown to html conversion for posts on my site! As I use the tool if there are features I wish it had, I will try to add them one by one and do my best to also create a blog post for each new feature. </p>
+<p>I want to create a custom tool to convert markdown notes into HTML files that can be viewed in the browser. The goal is more to learn and practice some python coding. </p>
+<p>If you are looking for a tool that just works then you should really consider using [<code>pandoc</code>][0]. You can use this tool to convert your markdown files into <code>.html</code>, <code>.pdf</code>, <code>.docx</code>, or almost any format you can imagine. It is an excellent tool.</p>
 <h2>Requirements</h2>
-<p>To get started lets define the most basic requirements of the tool:</p>
+<p>To get started lets define the some basic requirements of the tool:</p>
 <ul>
 <li>Run from command line <code>python md2html &lt;input_md_file_path&gt; &lt;output_html_dir&gt;</code></li>
 <li>Take in a plane text markdown file and convert it to a html file that can be rendered in any browser </li>
@@ -37,7 +36,7 @@
 </li>
 </ul>
 <h2>Setting up a Python Virtual Environment</h2>
-<p>The first step is to create a python enviornment so we are not installing libraries to our main python installation. </p>
+<p>The first step is to create a python environment so we are not installing libraries to our main python installation. </p>
 <p>To create an environment named <code>myenv</code> in the <code>~/PythonEnvs/</code> directory type the following into your terminal on Linux:</p>
 <pre><code>mkdir ~/PythonEnvs
 cd ~/PythonEnvs
@@ -50,8 +49,8 @@ python3 -m venv myenv
 <pre><code>python -m pip install --upgrade pip
 python -m pip install markdown
 </code></pre>
-<h2>Using sys.arv() to Get Command Line Arguments</h2>
-<p>In the first post of this series I stated that we should be able to call out md2html too like this:</p>
+<h2>Using sys.argv() to Get Command Line Arguments</h2>
+<p>The first requirement is that we should be able to call out md2html too like this:</p>
 <pre><code>python md2html &lt;input_md_file_path&gt; &lt;output_html_dir&gt;
 </code></pre>
 <p>Right now we will work on getting the <code>&lt;input_md_file_path&gt;</code> argument passed into our program. To pass arguments we can create a main funciton in our python program and pass in the <code>sys.argv</code> list. That will look something like this. </p>
@@ -73,8 +72,8 @@ def main(argv:list)-&gt;None:
 if __name__=='__main__':
     main(sys.argv)
 </code></pre>
-<p>In python if <code>__name__=='main'</code> always runs first. Here it simply passes the results of a <code>sys.argv()</code> into the <code>main()</code> function. The <code>_parse_args()</code> function prints the results of the <code>sys.arv()</code> call. For now the <code>main()</code> function creates a markdown formatted string, then uses the <code>markdown.markdown()</code> function to convert it into html. The results of the conversion are printed to verify the functionality of the library.  </p>
-<p>Run the script like this:</p>
+<p>In python if <code>__name__=='main'</code> always runs first. Here it passes the results of a <code>sys.argv()</code> into the <code>main()</code> function. The <code>_parse_args()</code> function prints the results of the <code>sys.arv()</code> call. For now the <code>main()</code> function creates a markdown formatted string, then uses the <code>markdown.markdown()</code> function to convert it into html. The results of the conversion are printed to verify the functionality of the library.  </p>
+<p>Running the script like this:</p>
 <pre><code>python md2html.py ./temp.md
 </code></pre>
 <p>results in the following output:</p>
