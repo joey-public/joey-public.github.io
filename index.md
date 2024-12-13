@@ -6,5 +6,4 @@ li {
 # Joey's Site
 
 - [about me](./html/aboutme.html)
-- [math test](./html/math.html)
 - [blog](./html/b_index.html)
