@@ -49,6 +49,19 @@ def _parse_args(argv:list)->list:
     html_dir_str = argv[2]
     return [md_file_str, html_dir_str]
 
+def _generate_header():
+    pass
+def _add_toc():
+    pass
+def _renumber_images():
+    pass
+def _renumber_tables():
+    pass
+def _fix_html_links():
+    pass
+def _generate_footer():
+    pass
+
 def md2html(md_file_path:str, html_dir:str)->None:
     md_content_str = read_txt_file_content(md_file_path)
     html_content_str = markdown.markdown(md_content_str, extensions=EXTENSIONS)
