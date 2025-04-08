@@ -8,5 +8,6 @@
 # About Joey
 
 - [My Resume](./html/Resume.html)
+- [Weekly Problems](./markdown/weekly_problems.md)
 - [about me](./html/aboutme.html)
 - [blog](./html/b_index.html)
