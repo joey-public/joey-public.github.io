@@ -1,5 +1,5 @@
 <header>
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="../css/tech_doc.css">
     <script id="MathJax-script" async
       src="https://cdn.jsdelivr.net/npm/mathjax@3.0.0/es5/tex-mml-chtml.js">
     </script>
@@ -30,11 +30,11 @@ $$</p>
 <hr/>
 
 <h3>Solutions:</h3>
-<p><strong>Problem 1.3:</strong></p>
+<p><em>Problem 1.3:</em></p>
 <p>Figure 1 illustrates the result of summing the first four harmonics of a suqare wave. Even after only 4 summations, the general square wave shape begins to take hold.</p>
 <p><img alt="week0_fig1" src="../images/weekly_problems/week0_fig1.png" /></p>
 <p><strong>Figure 1:</strong> Summation of First 4 Square Wave Harmonics</p>
-<p><strong>Problem 1.4:</strong> </p>
+<p><em>Problem 1.4:</em> </p>
 <p>The problem gives a square wave frequency $f_0 = 10 Khz$ and maximum hearable frequency $f_{max} = 16 Khz$. Because $f_1 = 3f_0 = 30 Khz &gt; f_{max}$ all of the hearable energy must be withing within the first sine wave in equation 1.2.</p>
 <p>Knowing that all the energy is contained in the first harmonic simplifies the problem into finding the energy contained in $\frac{4}{\pi} \sin(2\pi f_0t)$ and then comparing it to the energy in the square wave.</p>
 <p>Then the first step is to find the energy in $x(t) = \frac{4}{\pi} \sin(2\pi f_0t)$, when $f_0=10 Khz$. The definition for the <a href="https://en.wikipedia.org/wiki/Energy_(signal_processing)">energy of a signal</a> is:</p>
@@ -87,7 +87,7 @@ $$</p>
 <p>$$
 \boxed{\frac{E_{hearable}}{E_{total}} = \frac{8}{\pi^2} \approx 81 \%}
 $$</p>
-<p><strong>Problem 1.5:</strong> </p>
+<p><em>Problem 1.5:</em></p>
 <p>The series expansion from equation 1.2 after 4 iterations is:</p>
 <p>$$
 v(t) = \frac{4}{\pi} \left(
@@ -122,26 +122,26 @@ $$</p>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">t</th>
-<th style="text-align: left;">$v(t)$</th>
+<th style="text-align: center;">t</th>
+<th style="text-align: center;">$v(t)$</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">T/8</td>
-<td style="text-align: left;">0.892</td>
+<td style="text-align: center;">T/8</td>
+<td style="text-align: center;">0.892</td>
 </tr>
 <tr>
-<td style="text-align: left;">T/4</td>
-<td style="text-align: left;">0.922</td>
+<td style="text-align: center;">T/4</td>
+<td style="text-align: center;">0.922</td>
 </tr>
 <tr>
-<td style="text-align: left;">5T/8</td>
-<td style="text-align: left;">-0.892</td>
+<td style="text-align: center;">5T/8</td>
+<td style="text-align: center;">-0.892</td>
 </tr>
 <tr>
-<td style="text-align: left;">3T/4</td>
-<td style="text-align: left;">-0.922</td>
+<td style="text-align: center;">3T/4</td>
+<td style="text-align: center;">-0.922</td>
 </tr>
 </tbody>
 </table>
