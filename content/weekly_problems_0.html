@@ -1,0 +1,147 @@
+<header>
+<link rel="stylesheet" href="../css/tech_doc.css">
+    <script id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3.0.0/es5/tex-mml-chtml.js">
+    </script>
+    <script>
+    MathJax = {
+      tex: {
+          inlineMath: [['$', '$'], ['\(', '\)']]
+           }
+    };
+    </script>
+
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script>
+</header>
+<body><h1>Sedra/Smith Section 1.2: Frequency Spectrum of Signals</h1>
+<h2>Problems:</h2>
+<p><em>Problem 1.3:</em> Illustrate the composition of a square wave signal by sketching the first four terms of the series given in Eq. 1.2 and then performing a graphical summation.</p>
+<p><em>Problem 1.4:</em> For a square wave audio signal of 10 Khz, what fraction of the available energy is perceived by an average listener of age 40 whose hearing extends only to 16 Khz?</p>
+<p><em>Problem 1.5:</em> Numerically evaluate the series expansion for a square wave given in Eq 1.2 truncated after 4 terms at $t = T/8, T/4, 5T/8$ and $3T/4$.</p>
+<p>$$
+v(t) = \frac{4}{\pi}
+    \left(\sin(\omega_0 t) + \frac{1}{3} \sin(3\omega_0 t)
+     + \frac{1}{5} \sin(5\omega_0 t) + ...\right) V\tag{Eq 1.2}
+$$</p>
+<hr/>
+
+<h2>Solutions:</h2>
+<p><em>Problem 1.3:</em></p>
+<p>Figure 1 illustrates the result of summing the first four harmonics of a suqare wave. Even after only 4 summations, the general square wave shape begins to take hold.</p>
+<p><img alt="week0_fig1" src="../images/weekly_problems/week0_fig1.png" /></p>
+<p><strong>Figure 1:</strong> Summation of First 4 Square Wave Harmonics</p>
+<p><em>Problem 1.4:</em> </p>
+<p>The problem gives a square wave frequency $f_0 = 10 Khz$ and maximum hearable frequency $f_{max} = 16 Khz$. Because $f_1 = 3f_0 = 30 Khz &gt; f_{max}$ all of the hearable energy must be withing within the first sine wave in equation 1.2.</p>
+<p>Knowing that all the energy is contained in the first harmonic simplifies the problem into finding the energy contained in $\frac{4}{\pi} \sin(2\pi f_0t)$ and then comparing it to the energy in the square wave.</p>
+<p>Then the first step is to find the energy in $x(t) = \frac{4}{\pi} \sin(2\pi f_0t)$, when $f_0=10 Khz$. The definition for the <a href="https://en.wikipedia.org/wiki/Energy_(signal_processing)">energy of a signal</a> is:</p>
+<p>$$
+E_s = \int_{-\infty}^{\infty} |{x(t)}|^2
+$$</p>
+<p>For the signal $x(t) = \frac{4}{\pi} \sin(2 \pi f_0 t)$ that becomes: </p>
+<p>$$
+E_s = \left(\frac{4}{\pi}\right)^2 \int_{-\infty}^{\infty} \sin^2(2\pi f_0 t) dt
+$$</p>
+<p>Using the <a href="https://pleacher.com/handley/lessons/trig/ident2.html">half angel identity</a>:</p>
+<p>$$
+E_s = \left(\frac{4}{\pi}\right)^2 
+     \int_{-\infty}^{\infty} \frac{1-cos(4\pi f_0t)}{2} dt
+$$</p>
+<p>$$
+E_s = \frac{8}{\pi^2} 
+     \int_{-\infty}^{\infty} 1-cos(4\pi f_0t) dt
+$$</p>
+<p>Here we can clearly see that we are dealing with an infinite energy signal, but looking back at the problem we actually want to find the fraction of the hearable energy over total energy. Because the square wave and sine wave are periodic with the same period we can compare the energy in a single period, and that ratio holds. </p>
+<p>So the Hearable Energy becomes:</p>
+<p>$$
+E_{hearable} = \frac{8}{\pi^2} 
+     \int_{0}^{T_0} 1-cos(4\pi f_0t) dt
+$$</p>
+<p>$$
+E_{hearable} = \frac{8}{\pi^2} 
+     \int_{0}^{T_0} 1 dt -
+     \int_{0}^{T_0} cos(4\pi f_0t) dt
+$$</p>
+<p>$$
+E_{hearable} = \frac{8}{\pi^2} 
+     T_0 -
+     \left[sin(4\pi f_0T_0) - sin(0)\right]
+$$</p>
+<p>$$
+E_{hearable} = \frac{8}{\pi^2} T_0 
+$$</p>
+<p>To find the total energy note the equation for energy uses the absolute value squared, so that: </p>
+<p>$$
+E_{total} = \int_{0}^{T_0} 1 dt
+$$</p>
+<p>$$
+E_{total} = T_0
+$$</p>
+<p>Finally the fraction can be expressed as:</p>
+<p>$$
+\frac{E_{hearable}}{E_{total}} = \frac{\frac{8}{\pi^2} T_0}{T_0}
+$$</p>
+<p>$$
+\boxed{\frac{E_{hearable}}{E_{total}} = \frac{8}{\pi^2} \approx 81 \%}
+$$</p>
+<p><em>Problem 1.5:</em></p>
+<p>The series expansion from equation 1.2 after 4 iterations is:</p>
+<p>$$
+v(t) = \frac{4}{\pi} \left(
+       \sin(\omega_0 t) 
+     + \frac{1}{3} \sin(3\omega_0 t)
+     + \frac{1}{5} \sin(5\omega_0 t) 
+     + \frac{1}{7} \sin(7\omega_0 t) 
+     + \right)
+$$</p>
+<p>At $t=T/8$ $\omega_0t$ is $2\pi t /T = 2\pi / 8 = \pi/4$ so that:</p>
+<p>$$
+v(t) = \frac{4}{\pi} \left(
+       \sin(\pi/4) 
+     + \frac{1}{3} \sin(3\pi/4)
+     + \frac{1}{5} \sin(5\pi/4) 
+     + \frac{1}{7} \sin(7\pi/4) 
+     + \right)
+$$</p>
+<p>$$
+v(t) = \frac{4}{\pi} \left(
+       .707
+     + \frac{.707}{3} 
+     - \frac{.707}{5}
+     - \frac{.707}{7} 
+     + \right)
+$$</p>
+<p>$$
+v(t) = 0.892
+$$</p>
+<p>Table 1 summarizes the results for $t=T/4, 5T/8$ and $3T/4$:</p>
+<p><strong>Table 1:</strong> Question 1.5 Results</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">t</th>
+<th style="text-align: center;">$v(t)$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">T/8</td>
+<td style="text-align: center;">0.892</td>
+</tr>
+<tr>
+<td style="text-align: center;">T/4</td>
+<td style="text-align: center;">0.922</td>
+</tr>
+<tr>
+<td style="text-align: center;">5T/8</td>
+<td style="text-align: center;">-0.892</td>
+</tr>
+<tr>
+<td style="text-align: center;">3T/4</td>
+<td style="text-align: center;">-0.922</td>
+</tr>
+</tbody>
+</table>
+</body>
