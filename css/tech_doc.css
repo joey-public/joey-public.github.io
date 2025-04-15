@@ -2,7 +2,7 @@
 
 /* Global styles */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family:"Open Sans", sans-serif;
   line-height: 1.6;
   max-width: 900px;
   margin: 0 auto;
@@ -54,13 +54,13 @@ p strong {
 
 /* Links */
 a {
-  color: var(--accent-color); /* Use palette color */
+  color: rgba(0,0,128); /* Use palette color */
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
-  color: var(--accent-hover-color); /* Use palette color */
+  color: rgba(128,128,128); /* Use palette color */
 }
 
 /* Images */
