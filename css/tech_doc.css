@@ -1,59 +1,66 @@
-/* Modified Global styles to match the first stylesheet */
+@import 'palette.css'; /* Import the color palette */
+
+/* Global styles */
 body {
-    font-family: Arial, sans-serif; /* Match font */
-    line-height: 1.6;
-    max-width: 800px; /* Match max-width */
-    margin: 0 auto; /* Keep centering */
-    padding: 20px; /* Adjust padding to match */
-    color: #333; /* Default text color to match heading in first sheet */
-    background-color: #f0f0f0; /* Match background color */
-    text-align: left; /* Revert text alignment as the first body had it centered for the profile */
-    display: flex; /* Introduce flexbox for potential centering if needed */
-    flex-direction: column;
-    align-items: left;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: var(--text-color); /* Use palette color */
+  background-color: var(--background-body); /* Use palette color */
 }
 
-/* Modified Headings */
+/* Headings */
 h1, h2, h3, h4, h5, h6 {
-    color: #333; /* More neutral heading color to match profile h1 */
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
-    font-weight: bold; /* Use bold instead of specific weight number for simplicity */
-    text-align: left; 
+  color: var(--primary-color); /* Use palette color */
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-weight: 600;
 }
 
 h1 {
-    font-size: 2.2rem;
-    border-bottom: 2px solid black; /* Match link border color */
-    padding-bottom: 0.3em;
+  font-size: 2.2rem;
+  border-bottom: 3px solid var(--accent-color); /* Use palette color */
+  padding-bottom: 0.3em;
 }
 
 h2 {
-    font-size: 1.8rem;
-    border-bottom: 1px solid black; /* Adjust border to be less prominent */
-    padding-bottom: 0.2em;
+  font-size: 1.8rem;
+  border-bottom: 2px solid var(--accent-color); /* Use palette color */
+  padding-bottom: 0.2em;
 }
 
 h3 {
-    font-size: 1.5rem;
-    color: #333; /* Match heading color */
+  font-size: 1.5rem;
+  color: var(--primary-color); /* Use palette color */
 }
 
 /* Problem styling */
 p em {
-    font-weight: bold; /* Use bold to match potential emphasis in first sheet */
-    color: #c0392b; /* Keep original color */
+  font-weight: 500;
+  color: #c0392b; /* Keep original specific color */
 }
 
 /* Math styling */
 .MathJax {
-    font-size: 100% !important; /* Adjust size if needed */
+  font-size: 110% !important;
 }
 
 /* Solution styling */
 p strong {
-    color: #333; /* Match general text/heading color */
-    font-weight: bold; /* Consistent bolding */
+  color: var(--primary-color); /* Use palette color */
+}
+
+/* Links */
+a {
+  color: var(--accent-color); /* Use palette color */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: var(--accent-hover-color); /* Use palette color */
 }
 
 /* Images */
@@ -62,109 +69,105 @@ img {
   height: auto;
   display: block;
   margin: 2rem auto;
-  border: 1px solid #ddd;
+  border: 1px solid var(--border-color); /* Use palette color */
   border-radius: 4px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-
 /* Tables */
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0; /* Adjust margin */
-    font-size: 1em; /* Adjust font size if needed */
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.95rem;
 }
 
 th, td {
-    padding: 0.75rem;
-    border: 1px solid #ddd; /* Keep a subtle border */
-    text-align: left; /* Align text within cells */
+  padding: 0.75rem;
+  border: 1px solid var(--border-color); /* Use palette color */
 }
 
 thead {
-    background-color: #e0e0e0; /* Lighter background for thead */
+  background-color: #f2f2f2; /* Keep original specific color */
 }
 
 th {
-    font-weight: bold; /* Bold table headers */
+  font-weight: 600;
 }
 
 /* Code blocks */
 code {
-    font-family: 'Courier New', Courier, monospace;
-    background-color: #f8f8f8;
-    padding: 0.2em 0.4em;
-    border-radius: 3px;
-    font-size: 0.9em;
-    color: black; /* Change code color to be less prominent */
-    border: 1px solid #ccc; /* Add a subtle border */
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #f8f8f8; /* Keep original specific color */
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+  color: #e74c3c; /* Keep original specific color */
 }
 
 /* Horizontal rule */
 hr {
-    border: 0;
-    height: 2px; /* Make it slightly thicker */
-    background-color: #ccc; /* Use a neutral color */
-    margin: 20px 0; /* Adjust margin */
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.2), rgba(0,0,0,0)); /* Keep original */
+  margin: 2rem 0;
 }
 
 /* Center only display math (double $$) */
 .MathJax_Display {
-    text-align: center !important;
-    margin: 1.5rem auto !important;
-    overflow-x: auto;
+  text-align: center !important;
+  margin: 1.5rem auto !important;
+  overflow-x: auto;
 }
 
 /* Ensure paragraphs with inline math stay left-aligned */
 p {
-    text-align: left;
+  text-align: left;
 }
 
 /* Boxed equations */
 p:has([class*="MathJax"][id*="mjx-eqn"]) {
-    position: relative;
-    padding: 0.5rem;
-    background-color: #e0e0e0; /* Neutral background */
-    border-left: 3px solid black; /* Match border color */
-    margin: 1.5rem 0;
+  position: relative;
+  padding: 0.5rem;
+  background-color: rgba(52, 152, 219, 0.05); /* Keep original specific color */
+  border-left: 3px solid #3498db; /* Use palette color */
+  margin: 1.5rem 0;
 }
 
 /* Figure captions */
 p:has(strong:first-child:contains("Figure")) {
-    text-align: center;
-    font-style: italic;
-    color: #777; /* More subdued color */
-    margin-top: -1.5rem;
+  text-align: center;
+  font-style: italic;
+  color: #7f8c8d; /* Keep original specific color */
+  margin-top: -1.5rem;
 }
 
 /* Table captions */
 p:has(strong:first-child:contains("Table")) {
-    font-weight: bold;
-    color: #333; /* Match heading color */
-    margin-bottom: 0.5rem;
-    text-align: center; /* Center table captions */
+  font-weight: 600;
+  color: #34495e; /* Keep original specific color */
+  margin-bottom: 0.5rem;
 }
 
-/* Print styles - keep these as they are specific to printing */
+/* Print styles */
 @media print {
-    body {
-        font-size: 12pt;
-        max-width: 100%;
-        padding: 0;
-        background-color: white;
-    }
+  body {
+    font-size: 12pt;
+    max-width: 100%;
+    padding: 0;
+    background-color: white; /* Keep original */
+  }
 
-    a {
-        color: #000;
-        text-decoration: none;
-    }
+  a {
+    color: #000; /* Keep original */
+    text-decoration: none;
+  }
 
-    h1, h2 {
-        page-break-after: avoid;
-    }
+  h1, h2 {
+    page-break-after: avoid;
+  }
 
-    img, table {
-        page-break-inside: avoid;
-    }
+  img, table {
+    page-break-inside: avoid;
+  }
 }

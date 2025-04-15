@@ -1,0 +1,10 @@
+:root {
+  --primary-color: #333;        /* Dark gray - for main text, borders */
+  --secondary-color: #f0f0f0;    /* Light gray - for backgrounds, hover */
+  --accent-color: #3498db;     /* Blue - for links, primary actions */
+  --accent-hover-color: #2980b9; /* Darker blue - for link hover */
+  --text-color: #333;         /* Consistent text color */
+  --background-body: #fff;     /* White body background for the content page */
+  --border-color: #ddd;       /* Light gray for borders */
+}
+
