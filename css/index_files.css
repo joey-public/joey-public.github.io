@@ -23,8 +23,9 @@ body {
   width: 200px;
   max-width: 200px;
   height: 200px;
-  border-radius: 80%;
+  border-radius: 50%; /* Changed from 80% to 50% */
   border: 2px solid var(--primary-color); /* Use palette color */
+  box-shadow: 0 2px 5px var(--primary-color);
   object-fit: cover;
   margin-bottom: 5px;
 }
