@@ -1,0 +1,60 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  background-color: #f0f0f0;
+}
+
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0px;
+}
+
+.profile-section img {
+  width: 200px; /* Use percentage-based width */
+  max-width: 200px; /* Add a max-width for larger screens */
+  height: 200px; /* Maintain aspect ratio */
+  border-radius: 80%;
+  border: 2px solid black;
+  object-fit: cover;
+  margin-bottom: 5px;
+}
+
+.profile-section h1 {
+  margin-top: 0;
+  font-size: 32px;
+  color: #333;
+}
+
+.links-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 0px;
+  width: 100%; /* Ensure the container takes full width */
+}
+
+.links-container a {
+  display: inline-block;
+  padding: 8px 20px;
+  margin: 5px;
+  border: 2px solid black;
+  text-decoration: none;
+  color: black;
+  /* min-width: 180px;  Remove the hardcoded min-width */
+  flex: 1; /* Allow links to share available space */
+  min-width: 0; /* Override any default min-width */
+  text-align: center;
+  max-width: 300px; /* Add a max width */
+}
+
+.links-container a:hover {
+  background-color: #f0f0f0;
+}
