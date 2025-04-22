@@ -1,0 +1,89 @@
+<header>
+ <link href="../css/tech_doc.css" rel="stylesheet"/>
+ <script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.0.0/es5/tex-mml-chtml.js">
+ </script>
+ <script>
+  MathJax = {
+      tex: {
+          inlineMath: [['$', '$'], ['\(', '\)']]
+           }
+    };
+ </script>
+ <script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+ </script>
+</header>
+<body>
+ <h1>
+  Sedra/Smith Section 1.4: Amplifiers
+ </h1>
+ <h2>
+  Problems:
+ </h2>
+ <p>
+  <em>
+   Problem 1.11:
+  </em>
+  An amplifier designed using a single metal-oxide-semiconductor
+(MOS) transistor has the transfer characteristic:
+ </p>
+ <p>
+  $$ 
+v_O = 10 - 5(v_I - 2)^2 
+$$
+ </p>
+ <p>
+  where $v_I$ and $v_0$ are in volts. This transfer characteristic applies for $2
+\leq v_I \leq v_O + 2$ and $v_O &gt; 0$. At the limits of this region the
+amplifier saturates.
+ </p>
+ <p>
+  a.) Sketch and clearly label the transfer characteristic. What are the
+saturation  levels $L_+$ and $L_-$ and the corresponding values of $v_1$.
+ </p>
+ <p>
+  b.) Bias the amplifier to obtain a dc output voltage of 5V. What value of input
+dc voltage $V_I$ is required.
+ </p>
+ <p>
+  c.) Calculate the value of the small-signal voltage gain at the bias point.
+ </p>
+ <p>
+  d.) If a sinusoidal input signal is superimposed on the dc bias voltage $V_I$,
+that is:
+ </p>
+ <p>
+  $$ 
+v_I = V_I + V_i \cos(\omega t) 
+$$
+ </p>
+ <p>
+  Find the resulting $v_O$. Using the trig identity $\cos^2(\Theta) = \frac{1}{2}
++ \frac{1}{2} \cos (2 \Theta)$, express $v_0$ as the sum of a dc component, a
+signal component with frequency $\omega$, and a sinusoidal component with
+frequency $2\omega$.The later component is undesireable and is a result of
+the nonlinear transfer characteristic of the amplifier. If it is required to
+limit the ratio of the second harmonic component to the fundamental component
+to $1%$, this ratio is know as the second-harmonic distortion, what is the
+corresponding upper limit on $V_i$?
+ </p>
+ <h2>
+  Solutions:
+ </h2>
+ <p>
+  <em>
+   Problem 1.7:
+  </em>
+ </p>
+ <p>
+  <em>
+   Problem 1.9:
+  </em>
+ </p>
+ <p>
+  <em>
+   Problem 1.10:
+  </em>
+ </p>
+</body>
