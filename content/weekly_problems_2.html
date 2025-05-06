@@ -73,17 +73,197 @@ corresponding upper limit on $V_i$?
  </h2>
  <p>
   <em>
-   Problem 1.7:
+   Problem 1.11:
   </em>
  </p>
  <p>
-  <em>
-   Problem 1.9:
-  </em>
+  a.) Figure 1 below shows a plot of the transfer function $v_O = 10-5(v_I-2)^2$. The Green area shows the region for $v_I \geq 2$ and the blue region shows the region for $v_I \leq v_O + 2$. The segment of the curve where green and blue do not overlap is the valid operating region of the amplifier.
  </p>
  <p>
-  <em>
-   Problem 1.10:
-  </em>
+  <img alt="week2_fig1" src="../images/weekly_problems/week2_fig1.svg"/>
+ </p>
+ <p>
+  <strong>
+   Figure 1:
+  </strong>
+  Transfer function with Saturation Regions Highlighted
+ </p>
+ <p>
+  Find $L_+$ by solving for $v_O$ when $v_I = 2$:
+ </p>
+ <p>
+  $$
+L_+ = v_O = 10-5(2-2)^2
+$$
+ </p>
+ <p>
+  $$
+L_+ = 10
+$$
+ </p>
+ <p>
+  Find $L_-$ by solving for $v_O$ when $v_I = v_O + 2$:
+ </p>
+ <p>
+  $$
+L_- = v_O = 10-5(v_O+2-2)^2
+$$
+ </p>
+ <p>
+  $$
+L_- = v_O = 10-5v_O^2
+$$
+ </p>
+ <p>
+  $$
+0 = 5v_O^2 + v_O - 10
+$$
+ </p>
+ <p>
+  The quadratic equation gives two solutions for L_-,
+ </p>
+ <p>
+  $$
+L_- = v_O = (-1.517, 1.318)
+$$
+ </p>
+ <p>
+  but only one of these is in the provided non-saturation range:
+ </p>
+ <p>
+  $$
+v_O = 1.318 
+$$
+ </p>
+ <p>
+  Table 1 below summarizes the inpur and output voltages at the edge of saturation:
+ </p>
+ <table>
+  <thead>
+   <tr>
+    <th style="text-align: center;">
+     Sat
+    </th>
+    <th style="text-align: center;">
+     v_I
+    </th>
+    <th style="text-align: center;">
+     v_O
+    </th>
+   </tr>
+  </thead>
+  <tbody>
+   <tr>
+    <td style="text-align: center;">
+     L_+
+    </td>
+    <td style="text-align: center;">
+     2
+    </td>
+    <td style="text-align: center;">
+     10
+    </td>
+   </tr>
+   <tr>
+    <td style="text-align: center;">
+     L_-
+    </td>
+    <td style="text-align: center;">
+     3.318
+    </td>
+    <td style="text-align: center;">
+     1.318
+    </td>
+   </tr>
+  </tbody>
+ </table>
+ <p>
+  Looking closely back at figure 1 we can visually confirm these results.
+ </p>
+ <p>
+  b.) Solve for $v_I$ when $v_O=5$:
+ </p>
+ <p>
+  $$
+5 = 10-5(v_I-2)^2
+$$
+ </p>
+ <p>
+  $$
+-5 = -5(v_I-2)^2
+$$
+ </p>
+ <p>
+  $$
+1 = (v_I-2)^2
+$$
+ </p>
+ <p>
+  $$
+\pm \sqrt(1) = v_I-2
+$$
+ </p>
+ <p>
+  $$
+\pm 1 = v_I-2
+$$
+ </p>
+ <p>
+  We get two solutions for $v_I$
+ </p>
+ <p>
+  $$ 
+v_I = (1, 3)
+$$
+ </p>
+ <p>
+  But only one answer gives us a valid non-saturated input voltage:
+ </p>
+ <p>
+  $$
+v_I = 3
+$$
+ </p>
+ <p>
+  c.) To find the small signal voltage gain solve for the derivative of $v_O$ with respect to $v_I$:
+ </p>
+ <p>
+  $$
+\frac{dv_O}{dv_I} = \frac{d}{dv_I} \left[
+  10-5(v_I-2)^2
+\right]
+$$
+ </p>
+ <p>
+  $$
+\frac{dv_O}{dv_I} = \frac{d}{dv_I} \left[
+  10-5(v_I^2-4v_I+4)
+\right]
+$$
+ </p>
+ <p>
+  $$
+\frac{dv_O}{dv_I} = \frac{d}{dv_I} \left[
+  30-5v_I^2-20v_I
+\right]
+$$
+ </p>
+ <p>
+  $$
+\frac{dv_O}{dv_I} = 10v_I-20
+$$
+ </p>
+ <p>
+  now solve when $v_I=3$ to get the answer:
+ </p>
+ <p>
+  $$
+10(3)-20 = 10
+$$
+ </p>
+ <p>
+  $$
+10 V/V
+$$
  </p>
 </body>
