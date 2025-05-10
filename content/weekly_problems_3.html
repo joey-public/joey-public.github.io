@@ -67,4 +67,145 @@ voltage gain realized.
  <h2>
   Solutions:
  </h2>
+ <p>
+  <em>
+   Problem 1.14:
+  </em>
+  For a voltage amplifier the loaded voltage gain is:
+ </p>
+ <p>
+  $$
+A_v = \frac{v_i}{v_o} = A_{ov} \frac{R_L}{R_L+R0}
+$$
+ </p>
+ <p>
+  The voltage into an amplifier when connected to a source with resistance $R_s$ is:
+ </p>
+ <p>
+  $$
+v_i = v_s \frac{R_i}{R_i+R_s}
+$$
+ </p>
+ <p>
+  The problem statement provides the following parameters:
+ </p>
+ <ul>
+  <li>
+   $v_s = 10 mV_{rms}$
+  </li>
+  <li>
+   $R_s = 10 k\Omega$
+  </li>
+  <li>
+   $A_ov = 10$
+  </li>
+  <li>
+   $R_i = 10 k\Omega$
+  </li>
+  <li>
+   $R_0 = 1 k\Omega$
+  </li>
+  <li>
+   $R_L = 1 k\Omega$
+  </li>
+ </ul>
+ <p>
+  The design requirement states that cascaded amplifiers must supply $2 V_{rms}$ across the load resistance.
+ </p>
+ <p>
+  At the input of the first amplifier the voltage $v_i$ is:
+ </p>
+ <p>
+  $$
+v_i = v_s \frac{R_i}{R_i+R_s}
+$$
+ </p>
+ <p>
+  $$
+v_i = 10 \frac{10}{10+10} mV_{rms}
+$$
+ </p>
+ <p>
+  $$
+v_i = 5 mV_{rms}
+$$
+ </p>
+ <p>
+  So in order to achieve the $2 V_{rms}$ requirement the total gain must be:
+ </p>
+ <p>
+  $$
+A_{target} \frac{2000}{5} = 400
+$$
+ </p>
+ <p>
+  The voltage gain of one amplifier loaded with another amplifier is:
+ </p>
+ <p>
+  $$
+A_{v1} = A_v \frac{R_i}{R_i+R_o}
+$$
+ </p>
+ <p>
+  $$
+A_{v1} = 10 \frac{10}{11}
+$$
+ </p>
+ <p>
+  $$
+A_{v1} = 9.09
+$$
+ </p>
+ <p>
+  The voltage gain of an amplifier loaded with the given load resistance is:
+ </p>
+ <p>
+  $$
+A_{v1} = A_v \frac{R_L}{R_L+R_o}
+$$
+ </p>
+ <p>
+  $$
+A_{v1} = 10 \frac{1}{2}
+$$
+ </p>
+ <p>
+  $$
+A_{v1} = 5 
+$$
+ </p>
+ <p>
+  To find the number of amplifiers needed solve the following equation:
+ </p>
+ <p>
+  $$
+A_{target} =  A_{v1}^n * A_{v2}
+$$
+ </p>
+ <p>
+  $$
+400 = 9.09^n * 5
+$$
+ </p>
+ <p>
+  Which gives $n=2$ so that $n+1=3$ amplifiers are needed to achieve the design requirements.
+ </p>
+ <p>
+  With 3 amplifiers the actual output voltage is:
+ </p>
+ <p>
+  $$
+v_o = A_{v_1}^2 * A_{v2} * v_i
+$$
+ </p>
+ <p>
+  $$
+v_o = 9.09^2 * 5 * 5 mV_{rms}
+$$
+ </p>
+ <p>
+  $$
+\boxed{ v_o = 2.07 V}
+$$
+ </p>
 </body>
