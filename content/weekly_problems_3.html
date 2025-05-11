@@ -135,7 +135,7 @@ $$
  </p>
  <p>
   $$
-A_{target} \frac{2000}{5} = 400
+A_{target}  = \frac{2000}{5} = 400
 $$
  </p>
  <p>
@@ -179,7 +179,7 @@ $$
  </p>
  <p>
   $$
-A_{target} =  A_{v1}^n * A_{v2}
+A_{target} = A_{v1}^n * A_{v2}
 $$
  </p>
  <p>
@@ -188,7 +188,7 @@ $$
 $$
  </p>
  <p>
-  Which gives $n=2$ so that $n+1=3$ amplifiers are needed to achieve the design requirements.
+  Which gives $n=2$ so that $\boxed{n+1=3}$ amplifiers are needed to achieve the design requirements.
  </p>
  <p>
   With 3 amplifiers the actual output voltage is:
@@ -206,6 +206,118 @@ $$
  <p>
   $$
 \boxed{ v_o = 2.07 V}
+$$
+ </p>
+ <p>
+  <em>
+   Problem 1.16:
+  </em>
+  The problem statement provides:
+ </p>
+ <ul>
+  <li>
+   $R_s = 2 k\Omega$
+  </li>
+  <li>
+   $R_i = 2 k\Omega$
+  </li>
+  <li>
+   $R_o = 20 k\Omega$
+  </li>
+  <li>
+   $G_m = 40 ms$
+  </li>
+  <li>
+   $R_L = 1 k\Omega$
+  </li>
+ </ul>
+ <p>
+  To solve for the total voltage gain from $v_i$ to $v_o$:
+ </p>
+ <p>
+  $$
+v_o = G_m v_i \left[\frac{1}{R_o}+\frac{1}{R_L}\right]^{-1}
+$$
+ </p>
+ <p>
+  $$
+A_{v1} = \frac{v_o}{v_i} = G_m \left[\frac{1}{R_o}+\frac{1}{R_L}\right]^{-1}
+$$
+ </p>
+ <p>
+  $$
+A_{v1} = \frac{v_o}{v_i} = 0.040 \left[\frac{1}{20000}+\frac{1}{1000}\right]^{-1}
+$$
+ </p>
+ <p>
+  $$
+\boxed{
+A_{v1} = 38.1 V/V
+}
+$$
+ </p>
+ <p>
+  To find the voltage gain from the source to the load:
+ </p>
+ <p>
+  $$
+A_{v2} = \frac{v_o}{v_s}
+$$
+ </p>
+ <p>
+  where:
+ </p>
+ <p>
+  $$
+v_i = v_s \frac{R_i}{R_i + R_s}
+$$
+ </p>
+ <p>
+  $$
+v_s = 2 v_i
+$$
+ </p>
+ <p>
+  $$
+A_{v2} = \frac{v_o}{2 v_i} = 0.5 A_{v1}
+$$
+ </p>
+ <p>
+  $$
+\boxed{
+A_{v1} = 19.05 V/V
+}
+$$
+ </p>
+ <p>
+  <em>
+   1.17:
+  </em>
+  Applying a text voltage $v_x$ to the amplifuers input and using KCL on the input node gives:
+ </p>
+ <p>
+  $$
+i_x = \frac{v_x}{R_i} + g_m v_x
+$$
+ </p>
+ <p>
+  solving for the input resistance as $v_x / i_x$ gives:
+ </p>
+ <p>
+  $$
+\frac{i_x}{v_x} = \frac{1}{R_i} + g_m
+$$
+ </p>
+ <p>
+  $$
+\frac{v_x}{i_x} = \frac{1}{\frac{1}{R_i} + g_m} 
+$$
+ </p>
+ <p>
+  $$
+\boxed{
+\frac{v_x}{i_x} = \frac{R_i}{1 + R_i g_m} 
+}
 $$
  </p>
 </body>
